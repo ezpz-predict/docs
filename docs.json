@@ -58,7 +58,6 @@
               "trading/deposit-withdraw",
               "trading/redeem",
               "trading/refund",
-              "trading/surrender",
               "trading/fees"
             ]
           },

@@ -38,7 +38,6 @@
 - [Deposit & withdraw](https://docs.ezpz.fi/trading/deposit-withdraw.md): Fund and withdraw USDC.
 - [Redeem tokens](https://docs.ezpz.fi/trading/redeem.md): Exchange winning tokens after resolution.
 - [Refunds (voided markets)](https://docs.ezpz.fi/trading/refund.md): Recover stake when markets are voided.
-- [Surrender (cash out)](https://docs.ezpz.fi/trading/surrender.md): Exit early before event end.
 - [Fees](https://docs.ezpz.fi/trading/fees.md): Platform, maker, AMM, and parlay fees.
 
 ### Resources

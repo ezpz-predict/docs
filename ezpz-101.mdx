@@ -38,13 +38,13 @@ In M1, most markets trade through an **AMM** (automated market maker). You swap 
 |--------|-------------|-----------------|
 | Buy YES | You think probability is too low | Event occurs |
 | Buy NO | You think probability is too high | Event does not occur |
-| Sell / surrender | Lock in gains or cut losses early | Price moves in your favor (or surrender rules apply) |
+| Sell / hold | Lock in gains or cut losses early | Sell via AMM before cutoff, or hold to resolution |
 
 <Note>
   **Order-book (CLOB) trading** is planned for a future release. See [Venues](/concepts/venues).
 </Note>
 
-You can exit before resolution by selling via the AMM or using **surrender** (cash-out) when eligible. See [Sell a prediction](/trading/sell-prediction) and [Surrender](/trading/surrender).
+You can exit before resolution by [selling](/trading/sell-prediction) via the AMM when the market is still open and the pool has liquidity.
 
 ## Resolution
 

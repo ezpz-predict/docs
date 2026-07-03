@@ -12,7 +12,7 @@ icon: "circle-question"
 | "Market closed" | Prediction cutoff passed | Market closed 15 min before event end |
 | "Market paused" | Operator emergency pause | Wait for resume or check market status |
 | Network timeout | Solana congestion | Retry; balance unchanged if tx did not confirm |
-| Slippage / pool error | Thin AMM liquidity | Reduce size or try [surrender](/trading/surrender) |
+| Slippage / pool error | Thin AMM liquidity | Reduce trade size or wait for pool depth |
 
 If a transaction **reverts on-chain**, your USDC is not debited. Check **Activity** in Portfolio for the failed entry.
 
@@ -48,7 +48,6 @@ If a transaction **reverts on-chain**, your USDC is not debited. Check **Activit
 |---------|--------------|------------|
 | Cannot add leg | Same match as existing leg | Anti-correlation rule — pick a different fixture |
 | Non-soccer market | M1 soccer-only parlays | Use single predictions for crypto/pump.fun |
-| Surrender blocked | One leg within 20 min | Wait or let parlay settle normally |
 
 ## Wrong resolution
 

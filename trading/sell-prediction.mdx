@@ -4,18 +4,15 @@ description: "Exit an open position by selling outcome tokens back to the AMM."
 icon: "arrow-right-from-bracket"
 ---
 
-You can **sell** outcome tokens back into the AMM pool before a market resolves. This is an alternative to [surrender](/trading/surrender) when the pool has liquidity and you want a market-driven price rather than a fixed deduction.
+You can **sell** outcome tokens back into the AMM pool before a market resolves — as long as the market is still open and the pool has liquidity.
 
-## When to sell
+## When you can sell
 
-| Situation | Sell via AMM | Surrender |
-|-----------|--------------|-----------|
-| Pool has liquidity | Yes — price from pool curve | Optional |
-| Event within 20 min | Only if market still open | Blocked |
-| You want market price | Yes | Fixed deduction applies |
-| Maker disabled surrender | Yes (if pool allows) | Blocked |
+- The market is **Open** (before prediction cutoff — 15 minutes before event end)
+- The AMM pool has enough liquidity to quote your trade
+- You hold YES or NO tokens from a prior prediction
 
-Selling is not available after **prediction cutoff** (15 min before event end) or once the market is closed for new activity.
+Selling is not available after prediction cutoff or once the market is closed for new activity.
 
 ## How it works
 
@@ -23,7 +20,7 @@ Selling is not available after **prediction cutoff** (15 min before event end) o
 2. You swap them back through the AMM for USDC.
 3. The pool absorbs your tokens; you receive USDC minus the **0.3% swap fee**.
 
-The amount you receive depends on **current pool prices** and **slippage** from your trade size — not a fixed surrender split.
+The amount you receive depends on **current pool prices** and **slippage** from your trade size.
 
 ## Steps
 
@@ -47,7 +44,7 @@ The amount you receive depends on **current pool prices** and **slippage** from 
 Large sells move the AMM price against you. If the pool is thin, you may receive less USDC than the headline price suggests. The trade preview shows estimated output before you confirm.
 
 <Warning>
-  If liquidity is too low, the sell may fail or quote poorly. Consider [surrender](/trading/surrender) if eligible, or hold until resolution.
+  If liquidity is too low, the sell may fail or quote poorly. Reduce size, wait for more pool depth, or hold until resolution.
 </Warning>
 
 ## On-chain
@@ -57,5 +54,5 @@ Selling is an AMM **swap** in reverse — your outcome tokens go into the pool a
 ## Related
 
 - [Place a prediction](/trading/place-prediction) — opening a position
-- [Surrender](/trading/surrender) — fixed early exit
 - [Portfolio](/guides/portfolio) — manage open positions
+- [Redeem tokens](/trading/redeem) — after resolution

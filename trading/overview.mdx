@@ -32,10 +32,9 @@ See [Place a prediction](/trading/place-prediction) and [Build a parlay](/tradin
 | Action | Guide |
 |--------|-------|
 | Deposit / withdraw USDC | [Deposit & withdraw](/trading/deposit-withdraw) |
-| Sell before resolution | [Sell a prediction](/trading/sell-prediction) |
+| Sell via AMM | [Sell a prediction](/trading/sell-prediction) |
 | Redeem after resolution | [Redeem tokens](/trading/redeem) |
 | Voided market | [Refund](/trading/refund) |
-| Cash out early | [Surrender](/trading/surrender) |
 | Track positions | [Portfolio](/guides/portfolio) |
 | Full settlement flow | [Order lifecycle](/concepts/order-lifecycle) |
 
@@ -51,7 +50,6 @@ flowchart TD
   F -->|Win| G[Redeem USDC]
   F -->|Lose| H[Tokens worth $0]
   E -->|Sell| I[AMM sell]
-  E -->|Surrender eligible| J[Cash out early]
 ```
 
 ## Execution venue
@@ -85,7 +83,6 @@ Each market is an isolated escrow:
 | Rule | Cutoff |
 |------|--------|
 | New predictions | 15 min before event end |
-| Surrender | 20 min before event end |
 | Resolution | 2h after expiry (operator) |
 | Redemption | After 24h dispute window |
 

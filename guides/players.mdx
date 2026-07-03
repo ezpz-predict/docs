@@ -11,7 +11,6 @@ As a player on ezpz.fi you can:
 - Browse and trade on sports, crypto, and pump.fun markets
 - Build soccer parlays
 - Track positions and P&amp;L in your portfolio
-- Surrender (cash out) eligible predictions before events end
 - Withdraw USDC to an external wallet
 
 ## Sign in
@@ -60,7 +59,6 @@ See [Place a prediction](/trading/place-prediction) for a detailed walkthrough.
 | Method | Guide |
 |--------|-------|
 | Sell via AMM | [Sell a prediction](/trading/sell-prediction) |
-| Surrender (cash out) | [Surrender](/trading/surrender) |
 
 ## Build a parlay
 
@@ -88,24 +86,7 @@ Open [Portfolio](/guides/portfolio) (`/portfolio`) to see:
 - Settled predictions and P&amp;L history
 - Open orders (when CLOB is available)
 
-## Surrender (cash out)
-
-You can exit some predictions early if:
-
-- The event is more than **20 minutes** away
-- The market allows surrender (maker-configured deduction applies)
-
-Default surrender split on a $100 prediction with 50% deduction:
-
-| Recipient | Amount |
-|-----------|--------|
-| You | $50 |
-| Maker | $45 |
-| Platform | $5 |
-
-For parlays, **every leg** must be 20+ minutes from its event end. If any leg is too close, surrender is blocked.
-
-## Withdraw
+## Track your predictions
 
 See [Deposit & withdraw](/trading/deposit-withdraw) for the full flow.
 
@@ -127,7 +108,6 @@ See [Deposit & withdraw](/trading/deposit-withdraw) for the full flow.
 | Rule | When it applies |
 |------|-----------------|
 | Prediction cutoff | 15 minutes before event end — placing new predictions is blocked |
-| Surrender cutoff | 20 minutes before event end — cash-out disabled |
 | Resolution cooldown | 2 hours after expiry — operator resolves |
 | Dispute window | 24 hours after resolution — redemption blocked |
 
