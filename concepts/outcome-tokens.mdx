@@ -6,13 +6,22 @@ icon: "coins"
 
 ## Outcome tokens
 
-When you bet on ezpz.fi, you hold **outcome tokens** — SPL tokens on Solana representing YES or NO on a specific market.
+When you make a prediction on ezpz.fi, you hold **outcome tokens** — SPL tokens on Solana representing YES or NO on a specific market. This is similar to Polymarket's Conditional Token Framework (CTF), adapted for Solana SPL mints.
+
+| Token | Pays if… | Value at resolution |
+|-------|----------|---------------------|
+| **YES** | Outcome occurs | $1.00 USDC |
+| **NO** | Outcome does not occur | $1.00 USDC |
+
+## Mint, swap, redeem
 
 The basic flow:
 
 1. **Mint** — Deposit USDC to receive equal YES + NO tokens (minus fees).
 2. **Swap** — Trade one side via the AMM to take a directional position.
 3. **Hold or redeem** — Keep tokens until resolution, then redeem winners for USDC.
+
+Advanced users can also **split** (mint without swapping) or **merge** (combine YES + NO back to USDC) when NegRisk multi-outcome markets launch. M1 uses the mint-and-swap path for all retail predictions.
 
 ```mermaid
 flowchart LR
@@ -53,9 +62,9 @@ Each market has an isolated **USDC vault**. When you win:
 The platform treasury and maker wallets do **not** pay winners directly. Markets are self-funded escrows.
 
 <Tip>
-  See [Resolution](/concepts/resolution) for the full settlement timeline including dispute windows.
+  See [Resolution](/concepts/resolution) for the full settlement timeline. To exit early, see [Sell a prediction](/trading/sell-prediction) or [Surrender](/trading/surrender). For voided markets, see [Refunds](/trading/refund).
 </Tip>
 
 ## Parlay positions
 
-Parlay bets are separate from single-market positions. They are backed by the parlay LP pool, not individual market vaults. See [Parlays](/concepts/parlays).
+Parlay predictions are separate from single-market positions. They are backed by the parlay LP pool, not individual market vaults. See [Parlays](/concepts/parlays).

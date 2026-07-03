@@ -17,7 +17,7 @@ Each market has:
 | Property | Description |
 |----------|-------------|
 | **Title & rules** | What is being predicted and how it resolves |
-| **Expiry** | When betting closes (typically 15 minutes before the event ends) |
+| **Expiry** | When trading closes (typically 15 minutes before the event ends) |
 | **Venue** | AMM or CLOB (see [Venues](/concepts/venues)) |
 | **Resolution source** | The authoritative data used to settle the market |
 
@@ -31,7 +31,7 @@ Navigate to an event at `/event/[slug]` for sports or `/crypto/event/[gameId]` f
 
 ### Sports (`/sports`)
 
-Soccer-focused betting with match cards, game lines, and live event pages. Markets are tied to fixtures from external sports data feeds.
+Soccer-focused predictions with match cards, game lines, and live event pages. Markets are tied to fixtures from external sports data feeds.
 
 ### Crypto (`/crypto`)
 
@@ -50,7 +50,7 @@ Maker-created markets on pump.fun coins. The maker verifies on-chain creator ide
 ```mermaid
 stateDiagram-v2
   [*] --> Open: Maker publishes
-  Open --> Closed: Bet cutoff (15 min before end)
+  Open --> Closed: Prediction cutoff (15 min before end)
   Closed --> Resolved: Oracle resolves
   Resolved --> Redeemed: Winners claim USDC
   Open --> Voided: Cancelled or auto-void
@@ -60,11 +60,36 @@ stateDiagram-v2
 | State | What it means |
 |-------|---------------|
 | **Open** | Players can place trades |
-| **Closed** | Bet cutoff passed; no new bets |
+| **Closed** | Prediction cutoff passed; no new predictions |
 | **Resolved** | Winning side declared; 24h dispute window |
 | **Redeemed** | Winners have claimed USDC |
 | **Voided** | Market cancelled; refunds available |
 
+## Market URLs
+
+| Vertical | URL pattern | Example |
+|----------|-------------|---------|
+| Sports event | `/event/[slug]` | Match page with all lines |
+| Crypto event | `/crypto/event/[gameId]` | BTC up/down session |
+| Pump.fun | `/pumpfun/[slug]` | Maker-created coin market |
+| Authoring | `/authoring` | Maker market wizard |
+
+Slugs are human-readable identifiers generated at publish time.
+
+## Resolution rules
+
+Every market declares a **resolution source** — the authoritative data used to settle. Examples:
+
+| Market type | Typical source |
+|-------------|----------------|
+| Soccer | Official match result from sports data feed |
+| Crypto price | Spot price at expiry from configured feed |
+| Pump.fun | On-chain graduation / creator criteria |
+
+Rules are visible on the market detail page before you trade. See [Resolution](/concepts/resolution).
+
 ## Who creates markets
 
 In the current release, only **makers** can create and publish markets through the authoring wizard (`/authoring`). Players browse and trade on published markets.
+
+Factory markets (sports, crypto) are created automatically from data feeds. Maker markets (pump.fun, custom) are authored manually.

@@ -1,0 +1,38 @@
+---
+title: "USDC collateral"
+description: "How USDC backs every prediction on ezpz.fi."
+icon: "dollar-sign"
+---
+
+All trading on ezpz.fi is collateralized in **USDC** — a dollar-pegged stablecoin on Solana. You deposit USDC, trade outcome tokens, and withdraw USDC. There is no separate platform token used as collateral.
+
+## Full collateralization
+
+Every YES/NO pair is backed by USDC locked in the market:
+
+| Action | What happens |
+|--------|--------------|
+| **Mint** | $1 USDC (minus fees) → 1 YES + 1 NO token |
+| **Redeem (win)** | 1 winning token → $1 USDC from market vault |
+| **Lose** | Losing tokens → $0 |
+
+The market **USDC vault** holds all player stakes for that market. Winners are paid from the same vault — not from a house bankroll.
+
+## Where your USDC lives
+
+| Location | Purpose |
+|----------|---------|
+| **Custodial wallet** | Spendable USDC balance; holds your outcome tokens |
+| **Market vault** | USDC backing open positions on a specific market |
+| **Parlay pool** | USDC backing parlay predictions |
+| **Fee vaults** | Platform and maker fees skimmed at mint |
+
+## Devnet vs mainnet
+
+On **devnet**, ezpz.fi uses a test USDC mint for development. On **mainnet**, standard USDC applies. Always confirm which network you are on before depositing.
+
+## Related
+
+- [Outcome tokens](/concepts/outcome-tokens) — mint, swap, redeem flow
+- [Fees](/trading/fees) — what is skimmed at mint time
+- [Deposit & withdraw](/trading/deposit-withdraw) — funding your account

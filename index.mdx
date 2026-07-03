@@ -6,14 +6,19 @@ icon: "star"
 
 ## What is ezpz.fi?
 
-ezpz.fi is a prediction market where you trade on real-world outcomes — sports matches, crypto price moves, pump.fun coins, and more. Markets settle on Solana. You sign in once; the platform handles on-chain execution through a custodial wallet so you can bet without approving every transaction.
+ezpz.fi is a prediction market where you trade on real-world outcomes — sports matches, crypto price moves, pump.fun coins, and more. Prices reflect collective belief about what will happen. Markets settle on **Solana** with **USDC** collateral.
+
+You sign in once; the platform handles on-chain execution through a **custodial wallet** so you can make predictions without approving every transaction.
 
 <CardGroup cols={2}>
+  <Card title="ezpz 101" icon="graduation-cap" href="/ezpz-101">
+    New to prediction markets? Start here.
+  </Card>
   <Card title="Quickstart" icon="rocket" href="/quickstart">
-    Create an account and place your first bet in minutes.
+    Connect your wallet and place your first prediction.
   </Card>
   <Card title="Core concepts" icon="book-open" href="/concepts/markets-events">
-    Understand markets, tokens, prices, and resolution.
+    Markets, tokens, prices, and resolution.
   </Card>
   <Card title="For players" icon="user" href="/guides/players">
     Browse markets, trade, and manage your portfolio.
@@ -21,10 +26,30 @@ ezpz.fi is a prediction market where you trade on real-world outcomes — sports
   <Card title="For makers" icon="store" href="/guides/makers">
     Create markets, seed liquidity, and earn fees.
   </Card>
-  <Card title="Architecture" icon="sitemap" href="/concepts/architecture">
-    Oracles, SPL positions, on-chain vs off-chain.
+  <Card title="Portfolio" icon="chart-pie" href="/guides/portfolio">
+    Track positions, P&amp;L, and settlement actions.
+  </Card>
+  <Card title="Account & security" icon="lock" href="/guides/account-security">
+    MFA, email, and player vs maker roles.
   </Card>
 </CardGroup>
+
+## How it works
+
+| Step | What happens |
+|------|--------------|
+| **1. Deposit** | Fund your custodial wallet with USDC |
+| **2. Predict** | Buy YES or NO on a market via the AMM |
+| **3. Hold or exit** | Wait for resolution, sell, or surrender early |
+| **4. Redeem** | Winning tokens pay $1.00 USDC each |
+
+```mermaid
+flowchart LR
+  User[You] --> App[ezpz.fi]
+  App --> API[Platform backend]
+  API --> Solana[Solana programs]
+  Solana --> Vault[Market USDC vault]
+```
 
 ## Product verticals
 
@@ -35,31 +60,33 @@ ezpz.fi is a prediction market where you trade on real-world outcomes — sports
 | **Pump.fun** | Maker-created coin markets | `/pumpfun` |
 | **Parlays** | Multi-leg accumulators (soccer) | `/parlay` |
 
-## How trading works
+## Key concepts
 
-```mermaid
-flowchart LR
-  User[You] --> App[ezpz.fi]
-  App --> API[Platform backend]
-  API --> Solana[Solana programs]
-  Solana --> Vault[Market USDC vault]
-```
+<CardGroup cols={2}>
+  <Card title="Markets & events" icon="calendar" href="/concepts/markets-events">
+    How questions are structured and grouped.
+  </Card>
+  <Card title="Outcome tokens" icon="coins" href="/concepts/outcome-tokens">
+    YES/NO SPL tokens and positions.
+  </Card>
+  <Card title="Prices & AMM" icon="chart-line" href="/concepts/prices-amm">
+    How odds and pool pricing work.
+  </Card>
+  <Card title="Resolution" icon="gavel" href="/concepts/resolution">
+    Settlement, disputes, and redemption.
+  </Card>
+</CardGroup>
 
-1. You deposit USDC into your custodial wallet.
-2. You pick a side (YES or NO) on a market.
-3. The platform mints outcome tokens and routes your trade through the AMM.
-4. When the market resolves, winners redeem USDC from the market vault.
+## Who this documentation is for
+
+- **Players** — place single predictions and parlays, track positions, withdraw funds
+- **Makers** — create and publish markets, configure odds, earn maker fees
+- **Operators** — resolve markets, handle disputes, manage treasury (oracle-admin console)
 
 <Note>
   ezpz.fi does not offer a public API for third-party integrations. All trading happens through the web app.
 </Note>
 
-## Who this documentation is for
-
-- **Players** — place single bets and parlays, track positions, withdraw funds
-- **Makers** — create and publish markets, configure odds, earn maker fees
-- **Operators** — resolve markets, handle disputes, manage treasury (oracle-admin console)
-
 ## On-chain transparency
 
-Every market, bet, and payout is recorded on Solana. You do not need to interact with the chain directly — but settlement is verifiable on-chain. See [Architecture & settlement](/concepts/architecture), [Outcome tokens](/concepts/outcome-tokens), and [Resolution](/concepts/resolution).
+Every market, prediction, and payout is recorded on Solana. You do not need to interact with the chain directly — but settlement is verifiable on-chain. See [Smart contracts](/resources/contracts), [On-chain data](/resources/blockchain-data), [Architecture](/concepts/architecture), and [Order lifecycle](/concepts/order-lifecycle).

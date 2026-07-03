@@ -3,16 +3,18 @@
 ## Docs
 
 - [Overview](https://docs.ezpz.fi/index.md): What ezpz.fi is — Solana prediction markets with custodial trading.
-- [Quickstart](https://docs.ezpz.fi/quickstart.md): Create an account and place your first bet.
-- [Glossary](https://docs.ezpz.fi/glossary.md): Key terms used across ezpz.fi.
+- [ezpz 101](https://docs.ezpz.fi/ezpz-101.md): Introduction to prediction markets on ezpz.fi.
+- [Quickstart](https://docs.ezpz.fi/quickstart.md): Create an account and place your first prediction.
 
 ### Core concepts
 
 - [Markets & events](https://docs.ezpz.fi/concepts/markets-events.md): How prediction markets and events are structured.
 - [Outcome tokens & positions](https://docs.ezpz.fi/concepts/outcome-tokens.md): YES/NO tokens and how positions work.
+- [USDC collateral](https://docs.ezpz.fi/concepts/usdc-collateral.md): How USDC backs every prediction.
 - [Prices & AMM](https://docs.ezpz.fi/concepts/prices-amm.md): How odds and AMM pricing work.
 - [Resolution & disputes](https://docs.ezpz.fi/concepts/resolution.md): Market settlement and dispute handling.
-- [Parlays](https://docs.ezpz.fi/concepts/parlays.md): Multi-leg accumulator bets.
+- [Order lifecycle](https://docs.ezpz.fi/concepts/order-lifecycle.md): From UI confirmation to on-chain settlement.
+- [Parlays](https://docs.ezpz.fi/concepts/parlays.md): Multi-leg accumulator predictions.
 - [Venues (AMM vs CLOB)](https://docs.ezpz.fi/concepts/venues.md): Execution venues on ezpz.fi.
 - [Architecture & settlement](https://docs.ezpz.fi/concepts/architecture.md): On-chain vs off-chain, oracles, positions, pricing model.
 
@@ -21,10 +23,24 @@
 - [For players](https://docs.ezpz.fi/guides/players.md): Step-by-step playing guide.
 - [For makers](https://docs.ezpz.fi/guides/makers.md): Market creation and fee earning.
 - [For operators](https://docs.ezpz.fi/guides/operators.md): Resolution, disputes, and treasury.
+- [Portfolio](https://docs.ezpz.fi/guides/portfolio.md): Track positions and settlement actions.
+- [Account & security](https://docs.ezpz.fi/guides/account-security.md): MFA, email, and role switching.
 
 ### Trading
 
-- [Trading overview](https://docs.ezpz.fi/trading/overview.md): End-to-end betting flow.
-- [Place a bet](https://docs.ezpz.fi/trading/place-bet.md): Single-market bet walkthrough.
+- [Trading overview](https://docs.ezpz.fi/trading/overview.md): End-to-end prediction flow.
+- [Place a prediction](https://docs.ezpz.fi/trading/place-prediction.md): Single-market prediction walkthrough.
+- [Sell a prediction](https://docs.ezpz.fi/trading/sell-prediction.md): Exit via AMM before resolution.
 - [Build a parlay](https://docs.ezpz.fi/trading/build-parlay.md): Multi-leg parlay guide.
+- [Deposit & withdraw](https://docs.ezpz.fi/trading/deposit-withdraw.md): Fund and withdraw USDC.
+- [Redeem tokens](https://docs.ezpz.fi/trading/redeem.md): Exchange winning tokens after resolution.
+- [Refunds (voided markets)](https://docs.ezpz.fi/trading/refund.md): Recover stake when markets are voided.
+- [Surrender (cash out)](https://docs.ezpz.fi/trading/surrender.md): Exit early before event end.
 - [Fees](https://docs.ezpz.fi/trading/fees.md): Platform, maker, AMM, and parlay fees.
+
+### Resources
+
+- [Smart contracts](https://docs.ezpz.fi/resources/contracts.md): Solana program addresses.
+- [On-chain data](https://docs.ezpz.fi/resources/blockchain-data.md): Verify trades and balances on Solana.
+- [Geographic restrictions](https://docs.ezpz.fi/resources/geographic-restrictions.md): Jurisdiction gating policies.
+- [Troubleshooting](https://docs.ezpz.fi/resources/troubleshooting.md): Common issues and fixes.

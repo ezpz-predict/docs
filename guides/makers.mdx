@@ -11,7 +11,7 @@ icon: "store"
 - Create and publish prediction markets
 - Set odds and configure market rules
 - Seed AMM liquidity so players can trade
-- Earn maker fees on every bet placed on your markets
+- Earn maker fees on every prediction placed on your markets
 
 Makers use a **linked account** separate from a player account. Switch between roles via account switching — you cannot upgrade a player account in place.
 
@@ -22,7 +22,7 @@ Makers use a **linked account** separate from a player account. Switch between r
     Register and select the maker flow during onboarding, or use **Become a maker** from an existing account.
   </Step>
   <Step title="Enable MFA">
-    Go to **Settings** (`/settings`) and enable TOTP with an authenticator app. Save your recovery codes.
+    Go to **Settings** (`/settings`) and enable TOTP with an authenticator app. Save your recovery codes. See [Account & security](/guides/account-security).
   </Step>
   <Step title="Fund your wallet">
     Deposit USDC into your maker custodial wallet. A minimum balance may be required before you can publish (configured by operators).
@@ -66,7 +66,7 @@ After a market is created on-chain, seed the AMM pool:
 
 | Setting | Description |
 |---------|-------------|
-| **Maker fee** | 0.5–5% skimmed on every bet (you set this) |
+| **Maker fee** | 0.5–5% skimmed on every prediction (you set this) |
 | **Surrender deduction** | Percentage kept when players cash out early (default 50%) |
 
 View accrued fees at **Authoring → Fees** (`/authoring/fees`).
@@ -92,9 +92,9 @@ From your authoring dashboard you can:
 | Protection | Effect |
 |------------|--------|
 | Min maker balance | Cannot publish below operator-configured threshold |
-| Self-bet detection | Auto-suspend and refund if you bet on your own markets |
+| Self-prediction detection | Auto-suspend and refund if you predict on your own markets |
 | Odds bounds | On-chain overround enforced between 50–500 bps |
-| Maker ban | Operators can ban makers; pending bets are auto-refunded |
+| Maker ban | Operators can ban makers; pending predictions are auto-refunded |
 
 ## What's not in M1
 

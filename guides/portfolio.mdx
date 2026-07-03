@@ -1,0 +1,70 @@
+---
+title: "Portfolio"
+description: "Track positions, P&L, and settlement actions on ezpz.fi."
+icon: "chart-pie"
+---
+
+**Portfolio** (`/portfolio`) is your hub for open predictions, settled history, and post-resolution actions.
+
+## What you see
+
+| Section | Contents |
+|---------|----------|
+| **Open positions** | Single-market tokens and active parlays |
+| **Settled** | Resolved predictions with realized P&amp;L |
+| **Actions** | Redeem, refund, sell, surrender when eligible |
+
+Each row shows the market, side, stake, current value, and status.
+
+## Single-market positions
+
+Open single-market positions show:
+
+- **Side** — YES or NO tokens held
+- **Entry price** — average cost per token
+- **Current value** — implied value from AMM price
+- **Unrealized P&amp;L** — mark-to-market gain or loss
+- **Status** — Open, Closed, Resolved, Voided
+
+### Actions on open positions
+
+| Action | When available |
+|--------|----------------|
+| [Sell](/trading/sell-prediction) | Market open; pool has liquidity |
+| [Surrender](/trading/surrender) | 20+ min before event; maker allows |
+| View market | Always |
+
+## After resolution
+
+| Market status | Your action |
+|---------------|-------------|
+| **Resolved** (dispute window active) | Wait — redemption blocked |
+| **Resolved** (dispute window passed) | [Redeem](/trading/redeem) winning tokens |
+| **Voided** | [Refund](/trading/refund) stake |
+| **Disputed** | Wait for operator decision |
+
+You can [file a dispute](/concepts/resolution#disputes) within 24 hours of resolution if you believe the outcome is wrong.
+
+## Parlays
+
+Parlay rows show **per-leg status** (pending, won, lost, void). The parlay settles when all legs reach a final state:
+
+- All win → max payout
+- Any loss → $0
+- All void → full refund
+
+See [Build a parlay](/trading/build-parlay).
+
+## Activity history
+
+Portfolio and **Activity** show transaction history: mints, swaps, redemptions, refunds, and withdrawals. Failed trades appear as reverted — your balance is not debited unless the transaction confirmed.
+
+## CLOB orders (future)
+
+When order-book trading launches, Portfolio will also show **open limit orders** and fill history. M1 is AMM-only for retail.
+
+## Related
+
+- [Place a prediction](/trading/place-prediction)
+- [Deposit & withdraw](/trading/deposit-withdraw)
+- [Order lifecycle](/concepts/order-lifecycle)

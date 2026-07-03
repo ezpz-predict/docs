@@ -17,8 +17,8 @@
             "group": "Getting started",
             "pages": [
               "index",
-              "quickstart",
-              "glossary"
+              "ezpz-101",
+              "quickstart"
             ]
           },
           {
@@ -26,8 +26,10 @@
             "pages": [
               "concepts/markets-events",
               "concepts/outcome-tokens",
+              "concepts/usdc-collateral",
               "concepts/prices-amm",
               "concepts/resolution",
+              "concepts/order-lifecycle",
               "concepts/parlays",
               "concepts/venues",
               "concepts/architecture"
@@ -38,16 +40,32 @@
             "pages": [
               "guides/players",
               "guides/makers",
-              "guides/operators"
+              "guides/operators",
+              "guides/portfolio",
+              "guides/account-security"
             ]
           },
           {
             "group": "Trading",
             "pages": [
               "trading/overview",
-              "trading/place-bet",
+              "trading/place-prediction",
+              "trading/sell-prediction",
               "trading/build-parlay",
+              "trading/deposit-withdraw",
+              "trading/redeem",
+              "trading/refund",
+              "trading/surrender",
               "trading/fees"
+            ]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "resources/contracts",
+              "resources/blockchain-data",
+              "resources/geographic-restrictions",
+              "resources/troubleshooting"
             ]
           }
         ]
@@ -57,7 +75,7 @@
       "anchors": [
         {
           "anchor": "Open app",
-          "href": "https://ezpz.fi",
+          "href": "https://app.ezpz.fi",
           "icon": "arrow-up-right-from-square"
         }
       ]
@@ -73,7 +91,7 @@
     "primary": {
       "type": "button",
       "label": "Open ezpz.fi",
-      "href": "https://ezpz.fi"
+      "href": "https://app.ezpz.fi"
     }
   },
   "contextual": {

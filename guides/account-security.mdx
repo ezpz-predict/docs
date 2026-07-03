@@ -1,0 +1,79 @@
+---
+title: "Account & security"
+description: "Wallet sign-in, MFA, email recovery, and switching between player and maker roles."
+icon: "lock"
+---
+
+## Sign in
+
+ezpz.fi uses your **Solana wallet** (Phantom, Solflare, etc.) for authentication. Connecting your wallet creates or links a **custodial account** used for trading.
+
+You sign the wallet connection once. Most predictions execute without a per-trade wallet popup.
+
+## Email and MFA
+
+Open **Settings** (`/settings`) to:
+
+| Setting | Purpose |
+|---------|---------|
+| **Email** | Account recovery and notifications |
+| **MFA (TOTP)** | Required for withdrawals on mainnet; recommended for all accounts |
+
+<Steps>
+  <Step title="Open Settings">
+    Click your avatar → **Settings**.
+  </Step>
+  <Step title="Add email">
+    Bind an email address and verify it.
+  </Step>
+  <Step title="Enable MFA">
+    Scan the QR code with an authenticator app (Google Authenticator, Authy, etc.). Save your **recovery codes** offline.
+  </Step>
+</Steps>
+
+<Warning>
+  Without MFA, withdrawals may be blocked on mainnet. Store recovery codes securely — losing both your authenticator and recovery codes can lock you out of sensitive actions.
+</Warning>
+
+## Player vs maker accounts
+
+**Players** and **makers** are separate account types:
+
+| Role | Can do |
+|------|--------|
+| **Player** | Browse, predict, parlay, withdraw |
+| **Maker** | Create markets, seed liquidity, claim maker fees |
+
+You **switch roles** via account switching — you cannot upgrade a player account in place. Makers also need MFA and a funded custodial wallet before publishing.
+
+See [For makers](/guides/makers) for the maker onboarding flow.
+
+## Custodial wallet
+
+Your custodial wallet is a Solana keypair managed by the platform:
+
+- Holds USDC and outcome token ATAs
+- Submits trades on your behalf after UI confirmation
+- Visible on [Solana Explorer](https://explorer.solana.com) by address
+
+Funds remain on-chain. The platform does not commingle your USDC with a house bankroll — market vaults hold prediction collateral separately.
+
+## Withdrawal security
+
+Withdrawals require:
+
+1. MFA verification (mainnet)
+2. A valid destination Solana address
+3. Sufficient USDC balance (positions must be sold, redeemed, or refunded first)
+
+See [Deposit & withdraw](/trading/deposit-withdraw).
+
+## Session and sign-out
+
+Sign out from the account menu to disconnect your session. Your on-chain balances and positions persist — reconnect with the same wallet to access them.
+
+## Related
+
+- [Quickstart](/quickstart) — first-time setup
+- [Architecture](/concepts/architecture) — custodial model detail
+- [Geographic restrictions](/resources/geographic-restrictions)

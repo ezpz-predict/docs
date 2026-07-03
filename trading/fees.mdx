@@ -4,9 +4,9 @@ description: "Understanding platform, maker, AMM, and parlay fees on ezpz.fi."
 icon: "receipt"
 ---
 
-## Three fees on single bets
+## Three fees on single predictions
 
-ezpz.fi uses **three distinct fees** on single-market bets. They are collected at different stages and never conflated:
+ezpz.fi uses **three distinct fees** on single-market predictions. They are collected at different stages and never conflated:
 
 | Fee | Rate | Collected at | Goes to |
 |-----|------|--------------|---------|
@@ -14,7 +14,7 @@ ezpz.fi uses **three distinct fees** on single-market bets. They are collected a
 | **Maker fee** | 0.5–5% (maker sets) | Mint (`mint_tokens`) | Maker fee intake → maker wallet |
 | **AMM swap fee** | 0.3% | Swap | Retained in AMM pool (LP profit) |
 
-## Example — $100 bet
+## Example — $100 prediction
 
 With 3% platform overround and 2% maker fee:
 
@@ -42,7 +42,7 @@ Max payout = net_stake × combined_odds / 100
 When you surrender (cash out) before an event ends, a **surrender deduction** applies. The maker configures this percentage (default 50%):
 
 ```
-$100 bet, 50% surrender deduction:
+$100 prediction, 50% surrender deduction:
   You receive:    $50
   Maker keeps:    $45
   Platform fee:   $5

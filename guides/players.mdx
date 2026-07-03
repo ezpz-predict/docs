@@ -11,7 +11,7 @@ As a player on ezpz.fi you can:
 - Browse and trade on sports, crypto, and pump.fun markets
 - Build soccer parlays
 - Track positions and P&amp;L in your portfolio
-- Surrender (cash out) eligible bets before events end
+- Surrender (cash out) eligible predictions before events end
 - Withdraw USDC to an external wallet
 
 ## Sign in
@@ -21,7 +21,7 @@ As a player on ezpz.fi you can:
     Click **Connect** in the header and approve with Phantom or Solflare.
   </Step>
   <Step title="Optional — bind email">
-    Go to **Settings** (`/settings`) to add email and enable MFA for account security.
+    Go to **Settings** (`/settings`) to add email and enable MFA — see [Account & security](/guides/account-security).
   </Step>
 </Steps>
 
@@ -36,7 +36,7 @@ As a player on ezpz.fi you can:
   </Step>
 </Steps>
 
-## Place a single bet
+## Place a single prediction
 
 <Steps>
   <Step title="Find a market">
@@ -53,7 +53,14 @@ As a player on ezpz.fi you can:
   </Step>
 </Steps>
 
-See [Place a bet](/trading/place-bet) for a detailed walkthrough.
+See [Place a prediction](/trading/place-prediction) for a detailed walkthrough.
+
+## Exit before resolution
+
+| Method | Guide |
+|--------|-------|
+| Sell via AMM | [Sell a prediction](/trading/sell-prediction) |
+| Surrender (cash out) | [Surrender](/trading/surrender) |
 
 ## Build a parlay
 
@@ -73,22 +80,22 @@ See [Place a bet](/trading/place-bet) for a detailed walkthrough.
   All legs must be from different matches. You cannot parlay two markets on the same fixture.
 </Warning>
 
-## Track your bets
+## Track your predictions
 
-Open **Portfolio** (`/portfolio`) to see:
+Open [Portfolio](/guides/portfolio) (`/portfolio`) to see:
 
 - Open positions with current value
-- Settled bets and P&amp;L history
+- Settled predictions and P&amp;L history
 - Open orders (when CLOB is available)
 
 ## Surrender (cash out)
 
-You can exit some bets early if:
+You can exit some predictions early if:
 
 - The event is more than **20 minutes** away
 - The market allows surrender (maker-configured deduction applies)
 
-Default surrender split on a $100 bet with 50% deduction:
+Default surrender split on a $100 prediction with 50% deduction:
 
 | Recipient | Amount |
 |-----------|--------|
@@ -100,6 +107,8 @@ For parlays, **every leg** must be 20+ minutes from its event end. If any leg is
 
 ## Withdraw
 
+See [Deposit & withdraw](/trading/deposit-withdraw) for the full flow.
+
 <Steps>
   <Step title="Open wallet">
     Click your balance in the header.
@@ -110,18 +119,30 @@ For parlays, **every leg** must be 20+ minutes from its event end. If any leg is
 </Steps>
 
 <Note>
-  MFA may be required for withdrawals. Enable it in **Settings**.
+  MFA may be required for withdrawals. Enable it in **Settings** — see [Account & security](/guides/account-security).
 </Note>
 
 ## Time cutoffs
 
 | Rule | When it applies |
 |------|-----------------|
-| Bet cutoff | 15 minutes before event end — placing new bets is blocked |
+| Prediction cutoff | 15 minutes before event end — placing new predictions is blocked |
 | Surrender cutoff | 20 minutes before event end — cash-out disabled |
 | Resolution cooldown | 2 hours after expiry — operator resolves |
 | Dispute window | 24 hours after resolution — redemption blocked |
 
+## After resolution
+
+| Outcome | Action |
+|---------|--------|
+| You win | [Redeem](/trading/redeem) tokens after dispute window |
+| Market voided | [Refund](/trading/refund) stake |
+| Wrong resolution | [File a dispute](/concepts/resolution#disputes) within 24h |
+
 ## Restricted regions
 
-If you are in a restricted jurisdiction, you are redirected to `/restricted` and cannot trade. Geographic restrictions are enforced at the platform level.
+If you are in a restricted jurisdiction, you are redirected to [ezpz.fi/restricted](https://ezpz.fi/restricted) and cannot trade. See [Geographic restrictions](/resources/geographic-restrictions).
+
+## Need help?
+
+See [Troubleshooting](/resources/troubleshooting) for common issues.

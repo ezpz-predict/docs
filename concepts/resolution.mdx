@@ -27,7 +27,7 @@ sequenceDiagram
 
 | Rule | Duration | Effect |
 |------|----------|--------|
-| **Bet cutoff** | 15 min before event end | No new bets or mints |
+| **Prediction cutoff** | 15 min before event end | No new predictions or mints |
 | **Settlement cooldown** | 2 hours after expiry | Operator cannot resolve yet |
 | **Dispute window** | 24 hours after resolution | Redemption blocked; disputes can be filed |
 | **Auto-void** | 7 days after expiry | Permissionless void if still unresolved |
@@ -39,11 +39,34 @@ After the dispute window passes, winners redeem their tokens:
 - Winning tokens → 1 USDC each (from the market vault)
 - Losing tokens → $0
 
-Redemption is executed on-chain through your custodial wallet.
+Redemption is executed on-chain through your custodial wallet. See [Redeem tokens](/trading/redeem) for the player walkthrough.
 
-## Disputes
+| Phase | Can you redeem? |
+|-------|-----------------|
+| Open / Closed | No — wait for resolution |
+| Resolved (dispute window active) | No — 24h hold |
+| Resolved (dispute window passed) | Yes — winning tokens only |
+| Voided | Refund, not redeem |
 
-If a resolution looks incorrect, a dispute can be filed within 24 hours of resolution. Operators review disputes in the oracle-admin console and either:
+## Disputes {#disputes}
+
+If a resolution looks incorrect, you can **file a dispute** within **24 hours** of on-chain resolution:
+
+<Steps>
+  <Step title="Open Portfolio">
+    Find the resolved market in **Portfolio** (`/portfolio`).
+  </Step>
+  <Step title="File dispute">
+    Use the **Dispute** action and describe why the outcome is wrong.
+  </Step>
+  <Step title="Wait for review">
+    Operators review in oracle-admin and either uphold or overturn the result.
+  </Step>
+</Steps>
+
+During a dispute, **redemption is blocked** for all participants on that market. Makers can also file disputes on their own markets.
+
+Operators review disputes in the oracle-admin console and either:
 
 - **Uphold** — confirm the original outcome
 - **Overturn** — correct the outcome

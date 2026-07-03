@@ -1,6 +1,6 @@
 ---
 title: "Trading overview"
-description: "How betting works on ezpz.fi end to end."
+description: "How predictions work on ezpz.fi end to end."
 icon: "arrows-rotate"
 ---
 
@@ -10,7 +10,7 @@ ezpz.fi uses a **custodial-first** model:
 
 1. You sign in with your Solana wallet once.
 2. The platform holds a custodial keypair linked to your account.
-3. When you confirm a bet in the UI, the platform submits the on-chain transaction — no wallet popup per trade.
+3. When you confirm a prediction in the UI, the platform submits the on-chain transaction — no wallet popup per trade.
 
 This keeps the experience fast while settlement remains on Solana.
 
@@ -18,16 +18,28 @@ This keeps the experience fast while settlement remains on Solana.
   ezpz.fi does not offer a public API. All trading happens through the web app at [ezpz.fi](https://ezpz.fi).
 </Note>
 
-## Single bets vs parlays
+## Single predictions vs parlays
 
 | Type | Funding source | How odds work |
 |------|----------------|---------------|
-| **Single bet** | Market USDC vault via AMM | Price at time of trade |
+| **Single prediction** | Market USDC vault via AMM | Price at time of trade |
 | **Parlay** | Parlay LP pool | Leg odds multiplied together |
 
-See [Place a bet](/trading/place-bet) and [Build a parlay](/trading/build-parlay).
+See [Place a prediction](/trading/place-prediction) and [Build a parlay](/trading/build-parlay).
 
-## The bet lifecycle
+## Funding and exits
+
+| Action | Guide |
+|--------|-------|
+| Deposit / withdraw USDC | [Deposit & withdraw](/trading/deposit-withdraw) |
+| Sell before resolution | [Sell a prediction](/trading/sell-prediction) |
+| Redeem after resolution | [Redeem tokens](/trading/redeem) |
+| Voided market | [Refund](/trading/refund) |
+| Cash out early | [Surrender](/trading/surrender) |
+| Track positions | [Portfolio](/guides/portfolio) |
+| Full settlement flow | [Order lifecycle](/concepts/order-lifecycle) |
+
+## The prediction lifecycle
 
 ```mermaid
 flowchart TD
@@ -38,7 +50,8 @@ flowchart TD
   E --> F{Event ends}
   F -->|Win| G[Redeem USDC]
   F -->|Lose| H[Tokens worth $0]
-  E -->|Surrender eligible| I[Cash out early]
+  E -->|Sell| I[AMM sell]
+  E -->|Surrender eligible| J[Cash out early]
 ```
 
 ## Execution venue
@@ -71,7 +84,7 @@ Each market is an isolated escrow:
 
 | Rule | Cutoff |
 |------|--------|
-| New bets | 15 min before event end |
+| New predictions | 15 min before event end |
 | Surrender | 20 min before event end |
 | Resolution | 2h after expiry (operator) |
 | Redemption | After 24h dispute window |
@@ -81,5 +94,5 @@ Each market is an isolated escrow:
 Track everything in **Portfolio** (`/portfolio`):
 
 - Open positions and unrealized P&amp;L
-- Settled bets and realized P&amp;L
+- Settled predictions and realized P&amp;L
 - Withdrawal history

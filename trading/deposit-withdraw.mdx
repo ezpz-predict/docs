@@ -1,0 +1,68 @@
+---
+title: "Deposit & withdraw"
+description: "Fund your ezpz.fi account and withdraw USDC."
+icon: "wallet"
+---
+
+## Deposit USDC
+
+<Steps>
+  <Step title="Connect wallet">
+    Sign in at [ezpz.fi](https://ezpz.fi) with Phantom or Solflare.
+  </Step>
+  <Step title="Open wallet panel">
+    Click your balance or avatar in the header.
+  </Step>
+  <Step title="Deposit">
+    Follow the in-app deposit flow to transfer USDC into your custodial wallet.
+  </Step>
+  <Step title="Confirm balance">
+    Your USDC balance updates in the header when the deposit confirms.
+  </Step>
+</Steps>
+
+On **devnet**, a faucet may be available for test USDC.
+
+<Note>
+  Network fees apply for on-chain transfers. ezpz.fi does not charge a deposit fee.
+</Note>
+
+## Withdraw USDC
+
+<Steps>
+  <Step title="Open wallet">
+    Click your balance in the header.
+  </Step>
+  <Step title="Withdraw">
+    Enter the destination Solana address and amount.
+  </Step>
+  <Step title="Confirm">
+    Complete MFA if required, then confirm the withdrawal.
+  </Step>
+</Steps>
+
+Withdrawals send USDC from your custodial wallet to the address you specify.
+
+<Warning>
+  Enable MFA in **Settings** before withdrawing on mainnet. Double-check the destination address — on-chain transfers cannot be reversed.
+</Warning>
+
+## What you cannot withdraw directly
+
+| Asset | Why |
+|-------|-----|
+| **Open outcome tokens** | Redeem or sell first — tokens are positions, not USDC |
+| **Locked parlay stake** | Wait for parlay settlement or cancellation |
+| **Pending trades** | Wait for on-chain confirmation |
+
+To convert positions back to USDC before resolution:
+
+- **Sell** via the AMM trade panel, or
+- **Surrender** if eligible ([Surrender](/trading/surrender)), or
+- **Redeem** after the market resolves ([Redeem](/trading/redeem))
+
+## Custodial model
+
+Your custodial wallet is a Solana keypair managed by the platform. You authenticate with your personal wallet; the platform submits trades on your behalf. USDC and outcome tokens remain on-chain and are tied to your account.
+
+See [ezpz 101](/ezpz-101) for how custodial trading differs from fully self-custodial wallets.

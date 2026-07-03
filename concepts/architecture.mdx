@@ -57,12 +57,12 @@ flowchart LR
 
 ## How positions are represented
 
-### Single-market bets — SPL tokens
+### Single-market predictions — SPL tokens
 
 Player positions on binary markets are **real SPL tokens**, not opaque database balances:
 
 - Each market leg has a **YES mint** and a **NO mint** (`anchor_spl::token::Mint`).
-- When a player bets, USDC is converted to a complete set (YES + NO) via `mint_tokens` / `mint_tokens_v2`, then the unwanted side is swapped via the AMM.
+- When a player makes a prediction, USDC is converted to a complete set (YES + NO) via `mint_tokens` / `mint_tokens_v2`, then the unwanted side is swapped via the AMM.
 - Tokens sit in the player's **custodial token account** (ATA) managed by the platform.
 - **Portfolio** and the API project on-chain balances; the indexer mirrors mint, swap, and redeem events.
 
@@ -70,7 +70,7 @@ Winning players call **`redeem`** to burn winning tokens and receive USDC from t
 
 ### Parlays — on-chain program accounts
 
-Parlay bets are **not** outcome SPL positions. They are recorded in **`Parlay` accounts** on `buukie-parlay`:
+Parlay predictions are **not** outcome SPL positions. They are recorded in **`Parlay` accounts** on `buukie-parlay`:
 
 - Stake is USDC in the parlay LP pool.
 - Legs reference underlying markets; `resolve_leg` reads each market's on-chain outcome.
@@ -192,7 +192,7 @@ LS-LMSR is a **bonding-curve-style** market maker: the pool maintains a cost fun
   **CLOB retail trading is gated off in M1.** Players trade via the AMM. Makers and factory markets may still use CLOB infrastructure in preparation for v2.
 </Warning>
 
-### End-to-end: single AMM bet
+### End-to-end: single AMM prediction
 
 1. **Off-chain:** Player confirms trade in UI; API checks balance and market status.
 2. **On-chain:** Custodial signer submits `swap` (which CPIs `mint_tokens_v2` + AMM math).

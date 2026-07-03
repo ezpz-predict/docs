@@ -19,7 +19,7 @@
 - **Gambler / bettor** → use **player** in public docs
 - **Agent** (market creator) → use **maker** in public docs
 - **Maker** — creates markets, seeds liquidity, earns maker fees
-- **Player** — retail user who places bets
+- **Player** — retail user who places predictions
 - **Operator** — oracle-admin user who resolves markets and manages treasury
 - **AMM** — automated market maker; M1 default execution venue
 - **CLOB** — central limit order book; planned for v2
@@ -40,3 +40,4 @@
 - Do **not** publish API reference — the API is closed with no third-party integrators
 - Do not document internal runbooks, deployment secrets, or cron endpoints in public docs
 - Keep buukie internal names in technical references until the ezpz rename
+- Structure mirrors [Polymarket docs](https://docs.polymarket.com) (101 intro, core concepts, trading flows, resources) — adapt for custodial Solana model, not copy

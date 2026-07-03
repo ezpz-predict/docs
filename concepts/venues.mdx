@@ -10,14 +10,14 @@ ezpz.fi supports two ways to trade outcome tokens:
 
 | Venue | How it works | M1 status |
 |-------|--------------|-----------|
-| **AMM** | Swap against a liquidity pool | **Live** — default for retail betting |
+| **AMM** | Swap against a liquidity pool | **Live** — default for retail predictions |
 | **CLOB** | Match limit orders off-chain, settle on-chain | **Future** — v2 release |
 
 Makers choose the venue when creating a market (`/authoring`).
 
 ## AMM (current default)
 
-- Prices set by the pool curve (constant-product today, LS-LMSR upgrade planned)
+- Prices set by the pool curve (LS-LMSR cost function; legacy CPMM phased out)
 - Always available as long as the pool has liquidity
 - Best for players who want instant execution
 - Makers seed liquidity at publish time
@@ -46,7 +46,7 @@ Key properties:
 
 | Use case | Better venue |
 |----------|--------------|
-| Quick retail bets | AMM |
+| Quick retail predictions | AMM |
 | Professional market making | CLOB |
 | Tight spreads on liquid markets | CLOB |
 | New markets with thin liquidity | AMM (maker-seeded) |

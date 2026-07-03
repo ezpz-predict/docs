@@ -1,0 +1,98 @@
+---
+title: "ezpz 101"
+description: "An introduction to ezpz.fi — prediction markets on Solana."
+icon: "graduation-cap"
+---
+
+ezpz.fi is a prediction market where you trade on real-world outcomes — sports, crypto, pump.fun coins, and more. Prices reflect collective belief about what will happen. You trade with other players through automated pools (and eventually order books), not against a house.
+
+Markets settle on **Solana**. The platform uses a **custodial wallet** so you can trade from the web app without signing every transaction.
+
+## Prices are probabilities
+
+Every outcome share is priced between **$0.00** and **$1.00**. The price reflects implied probability.
+
+| Price | Implied probability |
+|-------|---------------------|
+| $0.25 | ~25% chance |
+| $0.50 | ~50% chance |
+| $0.75 | ~75% chance |
+
+If YES trades at **65¢**, the market implies roughly a **65%** chance the outcome occurs.
+
+## Collateral and tokens
+
+ezpz.fi uses **USDC** as collateral. Every YES/NO pair is fully backed:
+
+- **$1 USDC** mints one YES token and one NO token (minus fees)
+- **Winning tokens** redeem for **$1.00** each after resolution
+- **Losing tokens** are worth **$0.00**
+
+Outcome tokens are **SPL tokens** on Solana — real on-chain assets in your custodial wallet. See [Outcome tokens](/concepts/outcome-tokens) and [USDC collateral](/concepts/usdc-collateral).
+
+## Trading
+
+In M1, most markets trade through an **AMM** (automated market maker). You swap against a liquidity pool at the current price.
+
+| Action | When to use | Profit scenario |
+|--------|-------------|-----------------|
+| Buy YES | You think probability is too low | Event occurs |
+| Buy NO | You think probability is too high | Event does not occur |
+| Sell / surrender | Lock in gains or cut losses early | Price moves in your favor (or surrender rules apply) |
+
+<Note>
+  **Order-book (CLOB) trading** is planned for a future release. See [Venues](/concepts/venues).
+</Note>
+
+You can exit before resolution by selling via the AMM or using **surrender** (cash-out) when eligible. See [Sell a prediction](/trading/sell-prediction) and [Surrender](/trading/surrender).
+
+## Resolution
+
+When an event concludes, markets are **resolved** to a winning side:
+
+1. The real-world outcome is determined from the market's **resolution source**
+2. An **operator** (or automated cron for factory markets) submits the result on-chain
+3. After the **dispute window**, winners **redeem** tokens for USDC
+
+Unlike permissionless oracle systems, M1 resolution is **operator-gated** with a published resolution source per market. See [Resolution](/concepts/resolution).
+
+## Custodial trading
+
+ezpz.fi uses custodial execution for a fast web experience:
+
+- You **sign in** with your Solana wallet once
+- The platform holds a **custodial keypair** linked to your account
+- Trades execute on-chain **without a wallet popup per prediction**
+- You can **withdraw USDC** to an external address when ready
+
+Your positions (SPL tokens) and balances are on Solana and verifiable on-chain. See [Deposit & withdraw](/trading/deposit-withdraw).
+
+<Note>
+  ezpz.fi does not offer a public API for third-party integrations. Trading is through the web app only.
+</Note>
+
+## Why Solana
+
+| Benefit | Description |
+|---------|-------------|
+| **Speed** | Sub-second confirmation for trades |
+| **Low fees** | Efficient settlement vs. legacy chains |
+| **Transparency** | Markets, mints, swaps, and redemptions are on-chain |
+| **Stable collateral** | USDC — not volatile platform tokens |
+
+## Getting started
+
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Connect your wallet and place your first prediction.
+  </Card>
+  <Card title="Core concepts" icon="book-open" href="/concepts/markets-events">
+    Markets, tokens, prices, and resolution in depth.
+  </Card>
+  <Card title="For players" icon="user" href="/guides/players">
+    Full player guide.
+  </Card>
+  <Card title="Explore ezpz.fi" icon="arrow-up-right-from-square" href="https://ezpz.fi">
+    Browse live markets.
+  </Card>
+</CardGroup>
