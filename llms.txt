@@ -14,6 +14,7 @@
 - [Resolution & disputes](https://docs.ezpz.fi/concepts/resolution.md): Market settlement and dispute handling.
 - [Parlays](https://docs.ezpz.fi/concepts/parlays.md): Multi-leg accumulator bets.
 - [Venues (AMM vs CLOB)](https://docs.ezpz.fi/concepts/venues.md): Execution venues on ezpz.fi.
+- [Architecture & settlement](https://docs.ezpz.fi/concepts/architecture.md): On-chain vs off-chain, oracles, positions, pricing model.
 
 ### User guides
 
