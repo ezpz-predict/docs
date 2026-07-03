@@ -14,20 +14,29 @@
 
 ## Terminology
 
-{/* Add product-specific terms and preferred usage */}
-{/* Example: Use "workspace" not "project", "member" not "user" */}
+- **ezpz.fi** — public product brand and web app (`frontend_v2`)
+- **buukie-*** — internal service and Solana program names (rename to ezpz planned)
+- **Gambler / bettor** → use **player** in public docs
+- **Agent** (market creator) → use **maker** in public docs
+- **Maker** — creates markets, seeds liquidity, earns maker fees
+- **Player** — retail user who places bets
+- **Operator** — oracle-admin user who resolves markets and manages treasury
+- **AMM** — automated market maker; M1 default execution venue
+- **CLOB** — central limit order book; planned for v2
+- **Custodial wallet** — server-managed Solana keypair per user account
 
 ## Style preferences
-
-{/* Add any project-specific style rules below */}
 
 - Use active voice and second person ("you")
 - Keep sentences concise — one idea per sentence
 - Use sentence case for headings
 - Bold for UI elements: Click **Settings**
 - Code formatting for file names, commands, paths, and code references
+- Document M1 scope accurately; mark v2/deferred features with Notes
 
 ## Content boundaries
 
-{/* Define what should and shouldn't be documented */}
-{/* Example: Don't document internal admin features */}
+- Document the public product (ezpz.fi) and operator workflows
+- Do **not** publish API reference — the API is closed with no third-party integrators
+- Do not document internal runbooks, deployment secrets, or cron endpoints in public docs
+- Keep buukie internal names in technical references until the ezpz rename

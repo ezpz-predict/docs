@@ -1,0 +1,55 @@
+---
+title: "Parlays"
+description: "Multi-leg accumulator bets on ezpz.fi."
+icon: "layer-group"
+---
+
+## What is a parlay?
+
+A **parlay** combines two or more legs into a single bet. **All legs must win** for you to receive a payout. If any leg loses, the entire parlay loses.
+
+Odds multiply across legs:
+
+```
+Combined odds = (leg1 × leg2 × ... × legN) / 100^(N-1)
+Max payout = net_stake × combined_odds / 100
+```
+
+A 2% parlay fee applies to the stake.
+
+## Current scope
+
+<Note>
+  M1 parlays are **soccer-only**. You cannot mix sports legs with crypto or pump.fun markets in a single parlay yet.
+</Note>
+
+Build a parlay at `/parlay` or by adding legs from sports market cards.
+
+## Anti-correlation rule
+
+You cannot include two legs from the **same match** in one parlay. The platform enforces this on-chain to prevent correlated bets that would not be true independent outcomes.
+
+## The parlay pool
+
+Parlays are backed by a separate **LP pool**, not individual market vaults:
+
+| Actor | Role |
+|-------|------|
+| **LPs** | Deposit USDC into the parlay pool; earn from losing parlays |
+| **Players** | Stake against the pool; win multiplied payouts if all legs hit |
+
+Single-market bets and parlay bets use different funding sources. See [Outcome tokens](/concepts/outcome-tokens) for how single bets settle.
+
+## Settlement cases
+
+| Case | Result |
+|------|--------|
+| All legs win | Full max payout |
+| Any leg loses | $0 |
+| Some legs voided | Odds recalculated on remaining legs |
+| All legs voided | Full stake refunded |
+| Below minimum legs | Full stake refunded |
+
+## Leg resolution
+
+Each leg resolves independently when its underlying market resolves. A permissionless `resolve_leg` instruction reads the market outcome and marks the parlay leg won, lost, or voided. Settlement runs once all legs have a final state.

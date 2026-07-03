@@ -1,0 +1,29 @@
+# ezpz.fi Documentation
+
+## Docs
+
+- [Overview](https://docs.ezpz.fi/index.md): What ezpz.fi is — Solana prediction markets with custodial trading.
+- [Quickstart](https://docs.ezpz.fi/quickstart.md): Create an account and place your first bet.
+- [Glossary](https://docs.ezpz.fi/glossary.md): Key terms used across ezpz.fi.
+
+### Core concepts
+
+- [Markets & events](https://docs.ezpz.fi/concepts/markets-events.md): How prediction markets and events are structured.
+- [Outcome tokens & positions](https://docs.ezpz.fi/concepts/outcome-tokens.md): YES/NO tokens and how positions work.
+- [Prices & AMM](https://docs.ezpz.fi/concepts/prices-amm.md): How odds and AMM pricing work.
+- [Resolution & disputes](https://docs.ezpz.fi/concepts/resolution.md): Market settlement and dispute handling.
+- [Parlays](https://docs.ezpz.fi/concepts/parlays.md): Multi-leg accumulator bets.
+- [Venues (AMM vs CLOB)](https://docs.ezpz.fi/concepts/venues.md): Execution venues on ezpz.fi.
+
+### User guides
+
+- [For players](https://docs.ezpz.fi/guides/players.md): Step-by-step playing guide.
+- [For makers](https://docs.ezpz.fi/guides/makers.md): Market creation and fee earning.
+- [For operators](https://docs.ezpz.fi/guides/operators.md): Resolution, disputes, and treasury.
+
+### Trading
+
+- [Trading overview](https://docs.ezpz.fi/trading/overview.md): End-to-end betting flow.
+- [Place a bet](https://docs.ezpz.fi/trading/place-bet.md): Single-market bet walkthrough.
+- [Build a parlay](https://docs.ezpz.fi/trading/build-parlay.md): Multi-leg parlay guide.
+- [Fees](https://docs.ezpz.fi/trading/fees.md): Platform, maker, AMM, and parlay fees.

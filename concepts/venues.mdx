@@ -1,0 +1,54 @@
+---
+title: "Venues (AMM vs CLOB)"
+description: "How ezpz.fi routes trades through different execution venues."
+icon: "shuffle"
+---
+
+## Two execution venues
+
+ezpz.fi supports two ways to trade outcome tokens:
+
+| Venue | How it works | M1 status |
+|-------|--------------|-----------|
+| **AMM** | Swap against a liquidity pool | **Live** — default for retail betting |
+| **CLOB** | Match limit orders off-chain, settle on-chain | **Future** — v2 release |
+
+Makers choose the venue when creating a market (`/authoring`).
+
+## AMM (current default)
+
+- Prices set by the pool curve (constant-product today, LS-LMSR upgrade planned)
+- Always available as long as the pool has liquidity
+- Best for players who want instant execution
+- Makers seed liquidity at publish time
+
+See [Prices & AMM](/concepts/prices-amm) for details.
+
+## CLOB (coming soon)
+
+The CLOB (central limit order book) works like Polymarket's order book:
+
+1. You sign an **order intent** off-chain
+2. The matching engine pairs buy and sell orders
+3. Matched fills settle atomically on-chain via the exchange program
+
+Key properties:
+
+- No custody — the exchange program verifies signatures and swaps tokens between makers
+- Limit orders rest on the book until filled or cancelled
+- Requires delegate approval on your token account (similar to Polymarket's `setApprovalForAll`)
+
+<Note>
+  Retail CLOB trading is gated off in M1. Limit orders and Count Bars derivatives are planned for v2.
+</Note>
+
+## Why two venues?
+
+| Use case | Better venue |
+|----------|--------------|
+| Quick retail bets | AMM |
+| Professional market making | CLOB |
+| Tight spreads on liquid markets | CLOB |
+| New markets with thin liquidity | AMM (maker-seeded) |
+
+Both venues settle against the same YES/NO outcome tokens and the same resolution process.

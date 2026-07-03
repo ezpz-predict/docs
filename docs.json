@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "theme": "maple",
+  "name": "ezpz.fi",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#C9F23C",
+    "light": "#D4F56A",
+    "dark": "#9BBF2E"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -18,55 +18,35 @@
             "pages": [
               "index",
               "quickstart",
-              "development"
+              "glossary"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Core concepts",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "concepts/markets-events",
+              "concepts/outcome-tokens",
+              "concepts/prices-amm",
+              "concepts/resolution",
+              "concepts/parlays",
+              "concepts/venues"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "User guides",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/components",
-              "essentials/reusable-snippets"
+              "guides/players",
+              "guides/makers",
+              "guides/operators"
             ]
           },
           {
-            "group": "Agent ready",
+            "group": "Trading",
             "pages": [
-              "agent-ready/prompt",
-              "agent-ready/visibility",
-              "agent-ready/contextual",
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "trading/overview",
+              "trading/place-bet",
+              "trading/build-parlay",
+              "trading/fees"
             ]
           }
         ]
@@ -75,52 +55,39 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Open app",
+          "href": "https://ezpz.fi",
+          "icon": "arrow-up-right-from-square"
         }
       ]
     }
   },
   "logo": {
     "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "dark": "/logo/dark.svg",
+    "href": "/"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
+    "links": [],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Open ezpz.fi",
+      "href": "https://ezpz.fi"
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+    "socials": {}
   }
 }

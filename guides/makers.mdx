@@ -1,0 +1,105 @@
+---
+title: "For makers"
+description: "How to create markets, seed liquidity, and earn fees on ezpz.fi."
+icon: "store"
+---
+
+## What makers do
+
+**Makers** create and run markets on ezpz.fi. You:
+
+- Create and publish prediction markets
+- Set odds and configure market rules
+- Seed AMM liquidity so players can trade
+- Earn maker fees on every bet placed on your markets
+
+Makers use a **linked account** separate from a player account. Switch between roles via account switching — you cannot upgrade a player account in place.
+
+## Become a maker
+
+<Steps>
+  <Step title="Sign up as a maker">
+    Register and select the maker flow during onboarding, or use **Become a maker** from an existing account.
+  </Step>
+  <Step title="Enable MFA">
+    Go to **Settings** (`/settings`) and enable TOTP with an authenticator app. Save your recovery codes.
+  </Step>
+  <Step title="Fund your wallet">
+    Deposit USDC into your maker custodial wallet. A minimum balance may be required before you can publish (configured by operators).
+  </Step>
+</Steps>
+
+## Create a market
+
+<Steps>
+  <Step title="Open authoring">
+    Navigate to **Authoring** (`/authoring`).
+  </Step>
+  <Step title="Start the wizard">
+    Click **New market** (`/authoring/new`) and follow the steps: venue, odds, resolution source, and review.
+  </Step>
+  <Step title="For pump.fun coins">
+    Use **Author coin** (`/authoring/coin`) to create markets tied to pump.fun tokens. Creator identity is verified on-chain.
+  </Step>
+  <Step title="Publish">
+    Submit the market. On-chain creation runs in the background — status updates appear in your authoring dashboard (`/authoring/[id]`).
+  </Step>
+</Steps>
+
+## Seed liquidity
+
+After a market is created on-chain, seed the AMM pool:
+
+<Steps>
+  <Step title="Open the market">
+    From your authoring dashboard, select the published market.
+  </Step>
+  <Step title="Initialize and seed">
+    Complete pool initialization and add USDC liquidity at your chosen odds ratio.
+  </Step>
+  <Step title="Verify">
+    Confirm the market appears on the public feed with tradeable prices.
+  </Step>
+</Steps>
+
+## Configure fees
+
+| Setting | Description |
+|---------|-------------|
+| **Maker fee** | 0.5–5% skimmed on every bet (you set this) |
+| **Surrender deduction** | Percentage kept when players cash out early (default 50%) |
+
+View accrued fees at **Authoring → Fees** (`/authoring/fees`).
+
+## Claim maker fees
+
+Fees accumulate on-chain in the maker fee intake. Claim them from your authoring dashboard when markets show a claimable balance.
+
+## Market management
+
+From your authoring dashboard you can:
+
+- Review publish status and on-chain confirmation
+- Edit metadata before the market goes live
+- Void a market (triggers player refunds)
+
+<Warning>
+  Voiding a live market affects all open players. Use only when the market cannot be fairly resolved.
+</Warning>
+
+## Rules and integrity
+
+| Protection | Effect |
+|------------|--------|
+| Min maker balance | Cannot publish below operator-configured threshold |
+| Self-bet detection | Auto-suspend and refund if you bet on your own markets |
+| Odds bounds | On-chain overround enforced between 50–500 bps |
+| Maker ban | Operators can ban makers; pending bets are auto-refunded |
+
+## What's not in M1
+
+- Open bonded market proposals (anyone can propose a market)
+- CLOB limit-order market making for retail
+- Cross-vertical parlay authoring
+
+These are planned for future releases.

@@ -1,0 +1,64 @@
+---
+title: "Resolution & disputes"
+description: "How markets are settled and what happens when outcomes are contested."
+icon: "gavel"
+---
+
+## Who resolves markets
+
+**Operators** resolve markets through the oracle-admin console — a separate application from the public ezpz.fi site. Operators review evidence, compare against the declared resolution source, and submit the winning outcome on-chain.
+
+## Resolution timeline
+
+```mermaid
+sequenceDiagram
+  participant Event
+  participant Market
+  participant Operator
+  participant Player
+
+  Event->>Market: Event concludes
+  Note over Market: 2h settlement cooldown
+  Operator->>Market: resolve_market(YES or NO)
+  Note over Market: 24h dispute window
+  Player->>Market: redeem winning tokens
+  Market->>Player: USDC payout
+```
+
+| Rule | Duration | Effect |
+|------|----------|--------|
+| **Bet cutoff** | 15 min before event end | No new bets or mints |
+| **Settlement cooldown** | 2 hours after expiry | Operator cannot resolve yet |
+| **Dispute window** | 24 hours after resolution | Redemption blocked; disputes can be filed |
+| **Auto-void** | 7 days after expiry | Permissionless void if still unresolved |
+
+## Redemption
+
+After the dispute window passes, winners redeem their tokens:
+
+- Winning tokens → 1 USDC each (from the market vault)
+- Losing tokens → $0
+
+Redemption is executed on-chain through your custodial wallet.
+
+## Disputes
+
+If a resolution looks incorrect, a dispute can be filed within 24 hours of resolution. Operators review disputes in the oracle-admin console and either:
+
+- **Uphold** — confirm the original outcome
+- **Overturn** — correct the outcome
+
+During a dispute, redemption is blocked for all participants on that market.
+
+## Voided markets
+
+A market may be **voided** if:
+
+- An operator cancels it before resolution
+- It remains unresolved 7 days after expiry (auto-void)
+
+Voided markets enable **refunds** — participants recover their stake instead of a winning side being declared.
+
+## Transparency
+
+Resolution transactions are on-chain and visible in Solana explorers. The oracle-admin **Audit** log records every operator action with timestamps.

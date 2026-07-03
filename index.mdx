@@ -1,133 +1,62 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
-icon: 'star'
+title: "Overview"
+description: "Learn how ezpz.fi works — Solana prediction markets with custodial trading, parlays, and maker-created markets."
+icon: "star"
 ---
 
-## Setting up
+## What is ezpz.fi?
 
-Get your documentation site up and running in minutes.
+ezpz.fi is a prediction market where you trade on real-world outcomes — sports matches, crypto price moves, pump.fun coins, and more. Markets settle on Solana. You sign in once; the platform handles on-chain execution through a custodial wallet so you can bet without approving every transaction.
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
-
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Create an account and place your first bet in minutes.
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+  <Card title="Core concepts" icon="book-open" href="/concepts/markets-events">
+    Understand markets, tokens, prices, and resolution.
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
+  <Card title="For players" icon="user" href="/guides/players">
+    Browse markets, trade, and manage your portfolio.
   </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
+  <Card title="For makers" icon="store" href="/guides/makers">
+    Create markets, seed liquidity, and earn fees.
   </Card>
-</Columns>
+</CardGroup>
 
-## Create beautiful pages
+## Product verticals
 
-Everything you need to create world-class documentation.
+| Vertical | What you trade on | Route |
+|----------|-------------------|-------|
+| **Sports** | Soccer match outcomes | `/sports`, `/event/[slug]` |
+| **Crypto** | BTC up/down and price events | `/crypto` |
+| **Pump.fun** | Maker-created coin markets | `/pumpfun` |
+| **Parlays** | Multi-leg accumulators (soccer) | `/parlay` |
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+## How trading works
 
-## Make your content agent ready
+```mermaid
+flowchart LR
+  User[You] --> App[ezpz.fi]
+  App --> API[Platform backend]
+  API --> Solana[Solana programs]
+  Solana --> Vault[Market USDC vault]
+```
 
-Make your docs work for humans and AI agents alike.
+1. You deposit USDC into your custodial wallet.
+2. You pick a side (YES or NO) on a market.
+3. The platform mints outcome tokens and routes your trade through the AMM.
+4. When the market resolves, winners redeem USDC from the market vault.
 
-<Columns cols={2}>
-  <Card
-    title="Prompt component"
-    icon="robot"
-    href="/agent-ready/prompt"
-  >
-    Embed shareable AI prompts readers can copy or open in Cursor.
-  </Card>
-  <Card
-    title="Visibility"
-    icon="eye"
-    href="/agent-ready/visibility"
-  >
-    Show different content to humans and agents reading your docs.
-  </Card>
-  <Card
-    title="Contextual menu"
-    icon="bolt"
-    href="/agent-ready/contextual"
-  >
-    Give readers one-click access to Claude, ChatGPT, Cursor, and more.
-  </Card>
-  <Card
-    title="AI coding tools"
-    icon="wand-magic-sparkles"
-    href="/ai-tools/claude-code"
-  >
-    Set up Claude Code, Cursor, or Windsurf with Mintlify's skill.
-  </Card>
-</Columns>
+<Note>
+  ezpz.fi does not offer a public API for third-party integrations. All trading happens through the web app.
+</Note>
 
-## Need inspiration?
+## Who this documentation is for
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+- **Players** — place single bets and parlays, track positions, withdraw funds
+- **Makers** — create and publish markets, configure odds, earn maker fees
+- **Operators** — resolve markets, handle disputes, manage treasury (oracle-admin console)
+
+## On-chain transparency
+
+Every market, bet, and payout is recorded on Solana. You do not need to interact with the chain directly — but settlement is verifiable on-chain. See [Outcome tokens](/concepts/outcome-tokens) and [Resolution](/concepts/resolution) for how vault accounting works.

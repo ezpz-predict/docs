@@ -1,0 +1,82 @@
+---
+title: "Place a bet"
+description: "How to place a single-market bet on ezpz.fi."
+icon: "ticket"
+---
+
+## Choose a market
+
+Navigate to a vertical:
+
+| Vertical | Route | Example |
+|----------|-------|---------|
+| Home feed | `/` | Featured markets across categories |
+| Sports | `/sports` | Soccer match lines |
+| Crypto | `/crypto` | BTC up/down, price events |
+| Pump.fun | `/pumpfun` | Coin graduation markets |
+| Event detail | `/event/[slug]` | All markets for one match |
+
+Click a market card to open the trade panel.
+
+## Read the trade panel
+
+Before you confirm, the panel shows:
+
+| Field | Meaning |
+|-------|---------|
+| **Side** | YES or NO (or named outcome) |
+| **Price** | Current implied probability |
+| **Stake** | USDC you are betting |
+| **Fees** | Platform overround + maker fee |
+| **Shares** | Outcome tokens you receive |
+| **Potential payout** | USDC returned if you win |
+
+<Tip>
+  Higher stakes move the AMM price (slippage). The preview reflects the price impact of your trade size.
+</Tip>
+
+## Confirm your bet
+
+<Steps>
+  <Step title="Enter stake">
+    Type the USDC amount or use quick-fill buttons.
+  </Step>
+  <Step title="Review preview">
+    Check fees, shares, and potential payout.
+  </Step>
+  <Step title="Confirm">
+    Click **Confirm**. The platform executes mint + swap on your custodial wallet.
+  </Step>
+  <Step title="Verify">
+    Your position appears in **Portfolio** within seconds.
+  </Step>
+</Steps>
+
+No wallet popup is required for custodial trades.
+
+## What happens on-chain
+
+Behind the scenes:
+
+1. **Mint** — Your USDC is converted to YES + NO tokens. Platform and maker fees are skimmed.
+2. **Swap** — The side you did not pick is swapped via the AMM for more of your chosen side.
+3. **Position** — You hold outcome tokens representing your bet.
+
+## After you bet
+
+| Scenario | What happens |
+|----------|--------------|
+| **You win** | Redeem tokens for USDC after resolution + dispute window |
+| **You lose** | Tokens become worthless; stake stays in market vault |
+| **Surrender** | Cash out early if 20+ min before event end (deduction applies) |
+| **Market voided** | Full refund of your stake |
+
+## Cutoffs
+
+<Warning>
+  Betting closes **15 minutes** before the event ends. The trade panel disables confirmation when the cutoff passes.
+</Warning>
+
+## Failed trades
+
+If a trade fails (network issue, insufficient balance, market paused), the UI shows an error with a retry option. Your USDC balance is not debited unless the on-chain transaction confirms.

@@ -1,0 +1,115 @@
+---
+title: "For operators"
+description: "How to resolve markets, handle disputes, and manage treasury."
+icon: "shield"
+---
+
+## Oracle-admin console
+
+Operators use a **separate admin application** (oracle-admin), not the public ezpz.fi site. Access requires operator credentials and TOTP.
+
+| Page | Purpose |
+|------|---------|
+| **Resolutions** | Review and resolve expired markets |
+| **Disputes** | Uphold or overturn contested resolutions |
+| **Treasury** | Platform fee balances, sweeps, withdrawals |
+| **Transactions** | Full platform ledger |
+| **Agents** | Maker list, ban/unban (labeled **Agents** in the admin UI) |
+| **Settings** | Global config (min maker balance, cutoffs) |
+| **Audit** | Operator action log |
+
+## Resolve a market
+
+<Steps>
+  <Step title="Sign in">
+    Open the oracle-admin console and complete email + TOTP authentication.
+  </Step>
+  <Step title="Find pending markets">
+    Go to **Resolutions**. Filter by expiry date or unresolved status.
+  </Step>
+  <Step title="Review evidence">
+    Open the market detail panel. Verify metadata, published odds, external evidence (e.g. match result), and indexer events.
+  </Step>
+  <Step title="Wait for cooldown">
+    Resolution is blocked until **2 hours** after market expiry. The UI shows a countdown.
+  </Step>
+  <Step title="Resolve">
+    Click **Resolve** and select the winning side. Sign the on-chain transaction with the operator key.
+  </Step>
+  <Step title="Verify treasury">
+    Check **Treasury** for the platform fee sweep entry.
+  </Step>
+</Steps>
+
+## Handle disputes
+
+<Steps>
+  <Step title="Open dispute">
+    Go to **Disputes** and select the filed dispute.
+  </Step>
+  <Step title="Review evidence">
+    Read the dispute reason, market logs, and original resolution data.
+  </Step>
+  <Step title="Decide">
+    Choose **Uphold** (confirm original outcome) or **Overturn** (correct the outcome).
+  </Step>
+  <Step title="Confirm">
+    Complete TOTP or wallet signature as required.
+  </Step>
+  <Step title="Audit">
+    Verify the decision appears in **Audit** and **Transactions**.
+  </Step>
+</Steps>
+
+During an active dispute, redemption is blocked for all participants on that market for 24 hours.
+
+## Treasury operations
+
+<Steps>
+  <Step title="View balances">
+    **Treasury** shows on-chain USDC balances and fee vault status.
+  </Step>
+  <Step title="Sweep fees">
+    Click **Sweep Fees** to move accumulated platform fees to the treasury wallet.
+  </Step>
+  <Step title="Withdraw">
+    Use **Withdraw** to send USDC to an external address when needed.
+  </Step>
+</Steps>
+
+## Maker management
+
+<Steps>
+  <Step title="Find maker">
+    Go to **Agents** in the admin console and find the target maker.
+  </Step>
+  <Step title="Ban if needed">
+    Click **Ban**, enter a reason, and confirm. Pending bets on the maker's markets are auto-refunded.
+  </Step>
+  <Step title="Verify refunds">
+    Check **Transactions** filtered by `refund` entries.
+  </Step>
+</Steps>
+
+## Settings
+
+Operators can configure:
+
+- Minimum maker balance required to publish
+- Platform-wide cutoff windows
+- Other global parameters
+
+Changes are logged in **Audit**.
+
+## Safety reminders
+
+| Rule | UI behavior |
+|------|-------------|
+| Bet cutoff (15 min) | Public app blocks new bets |
+| Settlement cooldown (2h) | Resolve button disabled with countdown |
+| Dispute window (24h) | Redemption blocked; dispute state shown |
+| Auto-void (7 days) | Unresolved markets void automatically; refunds enabled |
+
+## Audit trail
+
+Every operator action — resolve, dispute decision, ban, settings change, treasury sweep — is recorded in **Audit** with operator identity and timestamp. Use this for post-mortems and compliance review.

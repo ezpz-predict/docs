@@ -1,0 +1,46 @@
+---
+title: "Prices & AMM"
+description: "How odds and prices are determined on ezpz.fi."
+icon: "chart-line"
+---
+
+## Implied probability
+
+Market prices represent implied probability. A YES token trading at **45¢** implies roughly a 45% chance the outcome occurs. YES + NO prices should sum to approximately $1.00 (plus the overround fee).
+
+## The AMM venue
+
+Most M1 markets trade through an **automated market maker (AMM)** — a pool of YES and NO tokens that sets prices based on supply and demand.
+
+| Property | Behavior |
+|----------|----------|
+| **Pricing** | Constant-product formula (x × y = k) today |
+| **Upgrade path** | Liquidity-sensitive LMSR (LS-LMSR) |
+| **Swap fee** | 0.3% retained in the pool (LP profit) |
+| **Slippage** | Larger trades move the price more |
+
+When you place a bet:
+
+1. USDC is minted into YES + NO tokens (fees skimmed).
+2. You swap away the side you do not want.
+3. The AMM price updates for the next trader.
+
+## Liquidity
+
+**Makers** seed initial liquidity when publishing a market. The pool holds balanced YES/NO reserves. LP providers earn swap fees from every trade regardless of who wins the market.
+
+<Warning>
+  If you remove liquidity after a market resolves, tokens on the losing side are worthless. The UI warns before LP exit on resolved markets.
+</Warning>
+
+## Price display
+
+On market and event pages you see:
+
+- **Current price** — best available AMM price for each side
+- **Trade preview** — stake, fees, shares received, and potential payout before you confirm
+- **Charts** — price history where available (sports and crypto events)
+
+## CLOB pricing (future)
+
+Order-book markets will show bid/ask spreads and depth instead of AMM curves. CLOB trading is not available to players in M1. See [Venues](/concepts/venues).

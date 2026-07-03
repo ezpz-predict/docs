@@ -1,0 +1,55 @@
+---
+title: "Glossary"
+description: "Key terms used across ezpz.fi documentation."
+icon: "list"
+---
+
+## M
+
+**Maker** — A market creator with a linked account. Makers publish markets, seed liquidity, and earn maker fees. Distinct from a player account; you switch between player and maker via account switching, not an in-place upgrade.
+
+**Market** — A binary YES/NO prediction market on a specific question (e.g. "Will Team A win?"). Each market has its own USDC vault, outcome tokens, and resolution rules.
+
+**Mint (outcome tokens)** — Depositing USDC to receive a matched pair of YES and NO tokens. Players typically swap one side away to take a directional position.
+
+## O
+
+**Oracle / Operator** — The trusted party that resolves markets after events conclude. Operators use the oracle-admin console, not the public ezpz.fi app.
+
+**Outcome token** — An SPL token representing YES or NO on a market. Redeemable for USDC after resolution if your side wins.
+
+**Overround** — The platform fee skimmed at mint time (typically 1–5%). Distinct from maker fees and AMM swap fees.
+
+## P
+
+**Parlay** — A multi-leg bet where all legs must win for a payout. Odds multiply across legs. Backed by a separate LP pool, not individual market vaults.
+
+**Player** — A retail user who places bets on ezpz.fi. Uses a custodial wallet for trading.
+
+**Position** — Your current holdings of outcome tokens on one or more markets, visible in **Portfolio**.
+
+## R
+
+**Resolution** — The process of declaring which outcome won. After resolution, winners redeem tokens for USDC from the market vault.
+
+**Resolution source** — The declared rules and data source for how a market resolves (e.g. official match result, price feed).
+
+## S
+
+**Surrender (cash-out)** — Early exit from a bet before the event ends, subject to a deduction and time cutoffs.
+
+## V
+
+**Venue** — How a market executes trades: **AMM** (automated pool) or **CLOB** (order book). Makers choose the venue when creating a market.
+
+**Void** — A cancelled market where all participants receive refunds instead of a winning side.
+
+## A
+
+**AMM (Automated Market Maker)** — The execution venue that prices YES/NO outcome token swaps. ezpz.fi uses a constant-product pool today and is upgrading to liquidity-sensitive LMSR (LS-LMSR).
+
+## C
+
+**CLOB (Central Limit Order Book)** — An order-book venue where matched buy/sell orders settle on-chain via signed order intents. Planned for a future release; M1 trading is AMM-first.
+
+**Custodial wallet** — A server-managed Solana keypair tied to your account. You sign in with your personal wallet once; the platform submits most trades on your behalf.
