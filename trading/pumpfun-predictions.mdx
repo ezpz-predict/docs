@@ -1,0 +1,124 @@
+---
+title: "Trade pump.fun markets"
+description: "Browse coin markets, read up/down windows, and place predictions on pump.fun."
+icon: "chart-line"
+---
+
+## Find pump.fun markets
+
+<Steps>
+  <Step title="Open the feed">
+    Go to **Pump.fun** (`/pumpfun`) from the main navigation.
+  </Step>
+  <Step title="Browse or search">
+    The grid lists **platform-created markets only** — coins with at least one published question on ezpz. Use the search box to filter by title.
+  </Step>
+  <Step title="Open a coin event">
+    Click a card to open the coin event page (`/pumpfun/[slug]`) with price chart, market list, and trade panel.
+  </Step>
+</Steps>
+
+<Note>
+  If the feed is empty, no pump.fun markets have been published yet. Makers and community authors create them via [Author coin](/guides/pumpfun-creators).
+</Note>
+
+## Read the coin event page
+
+| Element | What it tells you |
+|---------|-------------------|
+| **Coin header** | Name, ticker, live price, 24h change (from pump.fun data) |
+| **Verified creator chip** | This market's author linked the coin's pump.fun creator wallet |
+| **Market rows** | Each synthetic question with Yes/No prices and expiry |
+| **Price chart** | Recent coin price history |
+| **Trade panel** | Stake, fees, shares, and potential payout for the selected market |
+
+A single coin can have multiple markets — graduation, different mcap thresholds, and rolling five-minute up/down windows.
+
+## Market shapes and what to expect
+
+### Graduation and market-cap threshold
+
+These markets are **open for trading** as soon as they are published and seeded. Read the title and resolution rules before confirming:
+
+- **Graduation:** YES wins if the coin graduates from pump.fun by expiry.
+- **Mcap threshold:** YES wins if USD market cap at expiry is at or above the stated target.
+
+### 5-minute up / down
+
+These markets move through two phases:
+
+| Phase | UI state | Can you trade? |
+|-------|----------|----------------|
+| **Pending** | "Opens at HH:MM UTC" — reference price not yet set | No |
+| **Open** | Price to Beat shown — five-minute window live | Yes |
+| **Closed / resolved** | Outcome declared | Redeem or move on |
+
+The **Price to Beat** is the reference captured at window open. YES (Up) wins if the coin's price at window close is **≥** that reference.
+
+<Warning>
+  Up/down windows are short. Predictions still follow the global **15-minute cutoff** rule relative to event end where applicable — for a five-minute window, trading closes when the window ends.
+</Warning>
+
+## Place a prediction
+
+The trade flow matches other verticals. See [Place a prediction](/trading/place-prediction) for the full panel breakdown.
+
+<Steps>
+  <Step title="Select a market">
+    On the coin event page, click the market row you want (or open it from the `/pumpfun` grid).
+  </Step>
+  <Step title="Choose YES or NO">
+    For up/down markets, YES = Up and NO = Down.
+  </Step>
+  <Step title="Enter stake and review">
+    Check price, fees, shares, and potential payout. Large stakes move the AMM price.
+  </Step>
+  <Step title="Confirm">
+    Click **Confirm**. The platform executes mint + swap on your custodial wallet — no per-trade wallet popup.
+  </Step>
+</Steps>
+
+## After you predict
+
+| Scenario | Action |
+|----------|--------|
+| **Win** | [Redeem](/trading/redeem) after resolution and the dispute window |
+| **Lose** | Tokens expire worthless |
+| **Sell early** | [Sell](/trading/sell-prediction) via AMM if the pool has liquidity |
+| **Surrender** | [Cash out](/trading/surrender) if eligible (20+ min before event end) |
+| **Voided market** | [Refund](/trading/refund) your stake |
+
+Track everything in **Portfolio** (`/portfolio`).
+
+## Parlays
+
+Pump.fun markets **cannot** be added to parlays yet. Parlays are soccer-only today. Build single predictions on pump.fun instead.
+
+## Resolution timing
+
+Most pump.fun shapes resolve automatically via platform crons shortly after expiry:
+
+| Shape | Typical resolution |
+|-------|-------------------|
+| Graduation | Graduation flag at expiry |
+| Mcap threshold | Recorded market cap at expiry |
+| Up/down | Price comparison at window close |
+
+After on-chain resolution, the standard **24-hour dispute window** applies before redemption. See [Resolution](/concepts/resolution).
+
+## Troubleshooting
+
+| Issue | Likely cause | What to do |
+|-------|--------------|------------|
+| Market not yet open | Up/down still pending | Wait for reference capture at window open |
+| Empty `/pumpfun` feed | No published markets | Check back later or ask makers in the community |
+| Trade disabled near expiry | Cutoff passed | Market closed to new predictions |
+| Non-soccer parlay error | Pump.fun leg in parlay slip | Remove the leg; parlays are soccer-only |
+
+More fixes: [Troubleshooting](/resources/troubleshooting).
+
+## Related
+
+- [Pump.fun markets (concepts)](/concepts/pumpfun-markets)
+- [For pump.fun creators & community](/guides/pumpfun-creators)
+- [Fees](/trading/fees)

@@ -39,7 +39,15 @@ Short-horizon price markets including **BTC Up/Down** (`/crypto/updown`). Events
 
 ### Pump.fun (`/pumpfun`)
 
-Maker-created markets on pump.fun coins. The maker verifies on-chain creator identity when publishing.
+**Synthetic markets** on pump.fun coins — binary questions published on ezpz, not the raw pump.fun coin feed. Makers and community members author markets; the platform factory also publishes trending mcap-threshold markets.
+
+| Shape | Example |
+|-------|---------|
+| Graduation | Will this coin graduate by Friday? |
+| Market-cap threshold | Will it cross $5m mcap by Friday? |
+| 5-minute up/down | Will it be Up or Down at 18:35 UTC? |
+
+Authors can optionally link their pump.fun creator wallet for a **Verified creator** badge. See [Pump.fun markets](/concepts/pumpfun-markets) and [For pump.fun creators & community](/guides/pumpfun-creators).
 
 <Note>
   Parlay legs are currently limited to soccer markets. Cross-vertical parlays are planned for a later release.
@@ -84,7 +92,7 @@ Every market declares a **resolution source** — the authoritative data used to
 |-------------|----------------|
 | Soccer | Official match result from sports data feed |
 | Crypto price | Spot price at expiry from configured feed |
-| Pump.fun | On-chain graduation / creator criteria |
+| Pump.fun | pump.fun APIs and market-cap snapshots; graduation flag, mcap at expiry, or up/down price vs reference |
 
 Rules are visible on the market detail page before you trade. See [Resolution](/concepts/resolution).
 
@@ -92,4 +100,4 @@ Rules are visible on the market detail page before you trade. See [Resolution](/
 
 In the current release, only **makers** can create and publish markets through the authoring wizard (`/authoring`). Players browse and trade on published markets.
 
-Factory markets (sports, crypto) are created automatically from data feeds. Maker markets (pump.fun, custom) are authored manually.
+Factory markets (sports, crypto, pump.fun trending) are created automatically from data feeds. Maker and community markets (pump.fun custom shapes, other custom) are authored manually via `/authoring`.

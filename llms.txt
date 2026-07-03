@@ -9,9 +9,10 @@
 ### Core concepts
 
 - [Markets & events](https://docs.ezpz.fi/concepts/markets-events.md): How prediction markets and events are structured.
+- [Pump.fun markets](https://docs.ezpz.fi/concepts/pumpfun-markets.md): Synthetic coin markets, shapes, verified creator badge, resolution.
 - [Outcome tokens & positions](https://docs.ezpz.fi/concepts/outcome-tokens.md): YES/NO tokens and how positions work.
 - [USDC collateral](https://docs.ezpz.fi/concepts/usdc-collateral.md): How USDC backs every prediction.
-- [Prices & AMM](https://docs.ezpz.fi/concepts/prices-amm.md): How odds and AMM pricing work.
+- [Prices & AMM](https://docs.ezpz.fi/concepts/prices-amm.md): LS-LMSR cost function, equations, trade pricing (ΔC), depth, and pool seeding.
 - [Resolution & disputes](https://docs.ezpz.fi/concepts/resolution.md): Market settlement and dispute handling.
 - [Order lifecycle](https://docs.ezpz.fi/concepts/order-lifecycle.md): From UI confirmation to on-chain settlement.
 - [Parlays](https://docs.ezpz.fi/concepts/parlays.md): Multi-leg accumulator predictions.
@@ -22,6 +23,7 @@
 
 - [For players](https://docs.ezpz.fi/guides/players.md): Step-by-step playing guide.
 - [For makers](https://docs.ezpz.fi/guides/makers.md): Market creation and fee earning.
+- [For pump.fun creators & community](https://docs.ezpz.fi/guides/pumpfun-creators.md): Author synthetic coin markets, optional verified creator link.
 - [For operators](https://docs.ezpz.fi/guides/operators.md): Resolution, disputes, and treasury.
 - [Portfolio](https://docs.ezpz.fi/guides/portfolio.md): Track positions and settlement actions.
 - [Account & security](https://docs.ezpz.fi/guides/account-security.md): MFA, email, and role switching.
@@ -30,6 +32,7 @@
 
 - [Trading overview](https://docs.ezpz.fi/trading/overview.md): End-to-end prediction flow.
 - [Place a prediction](https://docs.ezpz.fi/trading/place-prediction.md): Single-market prediction walkthrough.
+- [Trade pump.fun markets](https://docs.ezpz.fi/trading/pumpfun-predictions.md): Browse coin events, pending up/down windows, place predictions.
 - [Sell a prediction](https://docs.ezpz.fi/trading/sell-prediction.md): Exit via AMM before resolution.
 - [Build a parlay](https://docs.ezpz.fi/trading/build-parlay.md): Multi-leg parlay guide.
 - [Deposit & withdraw](https://docs.ezpz.fi/trading/deposit-withdraw.md): Fund and withdraw USDC.

@@ -1,0 +1,164 @@
+---
+title: "For pump.fun creators & community"
+description: "Create synthetic markets on pump.fun coins — as the coin creator or as a community member."
+icon: "user-pen"
+---
+
+## Who can create pump.fun markets
+
+Any **maker** on ezpz.fi can publish a pump.fun market on any coin mint. You do not have to be the coin's pump.fun creator.
+
+| Role | What you can do |
+|------|-----------------|
+| **Coin creator** | Author markets and optionally link your Phantom wallet for a **Verified creator** badge |
+| **Community member** | Author markets on any coin — graduation calls, mcap targets, or short up/down windows |
+| **Platform factory** | Automated mcap-threshold markets on trending coins (not user-authored) |
+
+If you are only a player today, switch to a maker account first — see [For makers](/guides/makers).
+
+<Note>
+  Pump.fun markets are **maker-authored**, not player proposals. Open bonded market proposals (anyone proposes, community votes) are planned for a later release.
+</Note>
+
+## Before you start
+
+<Steps>
+  <Step title="Become a maker">
+    Register as a maker or use **Become a maker** from an existing account. Enable MFA in **Settings** (`/settings`).
+  </Step>
+  <Step title="Fund your wallet">
+    Deposit USDC into your maker custodial wallet. You need enough balance to meet the minimum seed requirement when you publish.
+  </Step>
+  <Step title="Pick a coin mint">
+    Have the pump.fun coin's Solana mint address ready (base58, 32–44 characters). You can copy it from pump.fun or Solana explorers.
+  </Step>
+</Steps>
+
+## Author a market
+
+<Steps>
+  <Step title="Open Author coin">
+    Go to **Author coin** (`/authoring/coin`) or enter a mint with `?mint=<address>`.
+  </Step>
+  <Step title="Choose a market shape">
+    Select one of three shapes:
+
+    | Shape | Best for |
+    |-------|----------|
+    | **Graduation** | Will this coin graduate from the bonding curve by a date? |
+    | **Market-cap threshold** | Will it cross a USD mcap you pick by a date? |
+    | **5-minute up/down** | Will it finish the next five-minute window up or down? |
+
+    The form prefills the title from coin metadata. Adjust expiry and threshold (mcap shape only) as needed.
+  </Step>
+  <Step title="Set odds and fees">
+    Configure opening odds, maker fee (0.5–5%), and surrender deduction — same as any maker market.
+  </Step>
+  <Step title="Publish">
+    Submit the market. On-chain creation runs in the background. Track status in **Authoring** (`/authoring/[id]`).
+  </Step>
+  <Step title="Seed liquidity">
+    After on-chain confirmation, initialize the AMM pool and add USDC at your chosen odds ratio. The market is not tradeable until seeded.
+  </Step>
+</Steps>
+
+### Shape-specific tips
+
+**Graduation**
+
+- Set `matchDate` to when you want the graduation check — typically hours or days out.
+- Resolution uses the coin's graduated flag at expiry.
+
+**Market-cap threshold**
+
+- Pick a whole-USD threshold above the coin's current mcap (the form may warn if it is too close).
+- Multiple thresholds on the same coin and deadline can coexist as separate markets.
+
+**5-minute up/down**
+
+- Expiry must land on a UTC five-minute boundary (`:00`, `:05`, `:10`, …).
+- The window must open between **1 and 30 minutes** from when you publish.
+- The market stays **Pending** until the platform captures the reference price at window open — then it opens for five minutes of trading.
+- You do not set the reference price; the platform captures it automatically.
+
+## Link as verified creator (optional)
+
+The verified creator badge is **optional**. You can publish without it. Linking proves you control the wallet that minted the coin on pump.fun.
+
+<Steps>
+  <Step title="Connect Phantom">
+    Connect the wallet that created the coin on pump.fun. This must match the on-chain creator address for that mint.
+  </Step>
+  <Step title="Request a nonce">
+    Click **Link as creator**. The platform issues a one-time challenge nonce.
+  </Step>
+  <Step title="Sign the message">
+    Approve the canonical message in Phantom: `buukie creator link: <coinMint> <userId> <nonce>`.
+  </Step>
+  <Step title="Confirm link">
+    The platform verifies your signature against the coin's creator address and stores a durable link. Future markets you publish on that mint show **Verified creator**.
+  </Step>
+</Steps>
+
+<Tip>
+  Link once per coin mint. Re-linking is idempotent if you need to refresh after wallet changes.
+</Tip>
+
+Community-authored markets on the same coin simply omit the badge — players still trade them normally.
+
+## No upfront fee — seed is your commitment
+
+Pump.fun follows pump.fun's zero platform-fee posture on authoring: **no separate publishing fee**. Your cost is the **USDC you seed** into the AMM:
+
+- Seed liquidity backs the binary payout obligation.
+- Standard minimum seed rules apply.
+- You earn maker fees on every prediction placed on your market.
+
+This differs from pump.fun's bonding curve (infinite-depth liquidity from token supply). On ezpz, someone must underwrite the market — for user-authored coins, that underwriter is you.
+
+## After publish
+
+| Action | Where |
+|--------|-------|
+| Check publish / on-chain status | **Authoring** dashboard (`/authoring`) |
+| Edit metadata before go-live | Market detail in authoring |
+| Claim accrued maker fees | **Authoring → Fees** (`/authoring/fees`) |
+| Void a broken market | Authoring dashboard (triggers player refunds) |
+
+<Warning>
+  Voiding a live market affects every open player. Use only when the market cannot be resolved fairly.
+</Warning>
+
+## Platform factory markets
+
+You may see mcap-threshold markets on trending coins that you did not create. The platform factory:
+
+- Ranks non-graduated coins by recent mcap momentum
+- Authors one mcap-threshold market per coin (24-hour default window)
+- Skips coins that already have an open or unresolved platform market
+- Does not show a verified creator badge (platform agent, not coin creator)
+
+Factory markets use the same resolution rules and trade flow as maker-authored mcap markets.
+
+## Rules and integrity
+
+| Protection | Effect |
+|------------|--------|
+| Coin mint validation | Invalid base58 mints are rejected at create time |
+| Coin existence check | Rejects mints pump.fun confirms do not exist; accepts valid format if pump.fun is temporarily down |
+| Self-prediction detection | Auto-suspend and refund if you predict on your own markets |
+| Pending up/down guard | Players cannot bet until the reference price is captured |
+| Odds bounds | On-chain overround enforced between 50–500 bps |
+
+## Coming later
+
+- Parlay legs that include pump.fun markets
+- Jupiter cross-check for graduated coins (phase 3)
+- Open bonded market proposals
+- Creator-discounted minimum seed
+
+## Related
+
+- [Pump.fun markets (concepts)](/concepts/pumpfun-markets) — shapes, resolution, and data sources
+- [For makers](/guides/makers) — general maker onboarding
+- [Trade pump.fun markets](/trading/pumpfun-predictions) — player walkthrough

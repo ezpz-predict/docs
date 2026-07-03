@@ -3,9 +3,9 @@
   "theme": "maple",
   "name": "ezpz.fi",
   "colors": {
-    "primary": "#C9F23C",
-    "light": "#D4F56A",
-    "dark": "#9BBF2E"
+    "primary": "#7EA21C",
+    "light": "#5E7A10",
+    "dark": "#C9F23C"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -25,6 +25,7 @@
             "group": "Core concepts",
             "pages": [
               "concepts/markets-events",
+              "concepts/pumpfun-markets",
               "concepts/outcome-tokens",
               "concepts/usdc-collateral",
               "concepts/prices-amm",
@@ -40,6 +41,7 @@
             "pages": [
               "guides/players",
               "guides/makers",
+              "guides/pumpfun-creators",
               "guides/operators",
               "guides/portfolio",
               "guides/account-security"
@@ -50,6 +52,7 @@
             "pages": [
               "trading/overview",
               "trading/place-prediction",
+              "trading/pumpfun-predictions",
               "trading/sell-prediction",
               "trading/build-parlay",
               "trading/deposit-withdraw",
@@ -105,6 +108,9 @@
       "cursor",
       "vscode"
     ]
+  },
+  "styles": {
+    "latex": true
   },
   "footer": {
     "socials": {}
