@@ -1,37 +1,48 @@
 ---
 title: "Overview"
-description: "Learn how ezpz.fi works — Solana prediction markets with custodial trading, parlays, and maker-created markets."
+description: "Learn how ezpz.fi works. Prediction Markets project built on Solana with non-custodial trading, parlays, and maker-created markets."
 icon: "star"
 ---
 
 ## What is ezpz.fi?
 
-ezpz.fi is a prediction market where you trade on real-world outcomes — sports matches, crypto price moves, pump.fun coins, and more. Prices reflect collective belief about what will happen. Markets settle on **Solana** with **USDC** collateral.
+ezpz.fi is a prediction market where you trade on real-world outcomes (i.e.) sports matches, crypto price moves, pump.fun coins, tokenized assets price movements, geopolitics and more. Prices reflect collective belief about what will happen. Markets settle on **Solana** with **USDC** collateral for now. We will be allowing more stablecoins in the near future.
 
-You sign in once; the platform handles on-chain execution through a **custodial wallet** so you can make predictions without approving every transaction.
+You sign in once; the platform handles on-chain execution through a self-**custodial wallet** so you can make predictions without approving every transaction. Ensuring lightning fast reaction time for all traders, makers and jeeters alike.
 
 <CardGroup cols={2}>
   <Card title="ezpz 101" icon="graduation-cap" href="/ezpz-101">
     New to prediction markets? Start here.
   </Card>
+
   <Card title="Quickstart" icon="rocket" href="/quickstart">
     Connect your wallet and place your first prediction.
   </Card>
+
   <Card title="Core concepts" icon="book-open" href="/concepts/markets-events">
     Markets, tokens, prices, and resolution.
   </Card>
+
   <Card title="For players" icon="user" href="/guides/players">
     Browse markets, trade, and manage your portfolio.
   </Card>
+
   <Card title="For makers" icon="store" href="/guides/makers">
     Create markets, seed liquidity, and earn fees.
   </Card>
+
   <Card title="Pump.fun creators" icon="rocket" href="/guides/pumpfun-creators">
     Author synthetic markets on pump.fun coins.
   </Card>
-  <Card title="Portfolio" icon="chart-pie" href="/guides/portfolio">
-    Track positions, P&amp;L, and settlement actions.
+
+  <Card title="Pump.fun creators" icon="rocket" href="/guides/pumpfun-creators">
+    Author synthetic markets on pump.fun coins.
   </Card>
+
+  <Card title="Portfolio" icon="chart-pie" href="/guides/portfolio">
+    Track positions, P&L, and settlement actions.
+  </Card>
+
   <Card title="Account & security" icon="lock" href="/guides/account-security">
     MFA, email, and player vs maker roles.
   </Card>
@@ -40,11 +51,52 @@ You sign in once; the platform handles on-chain execution through a **custodial 
 ## How it works
 
 | Step | What happens |
-|------|--------------|
+| --- | --- |
 | **1. Deposit** | Fund your custodial wallet with USDC |
 | **2. Predict** | Buy YES or NO on a market via the AMM |
 | **3. Hold or exit** | Wait for resolution or sell via the AMM |
-| **4. Redeem** | Winning tokens pay $1.00 USDC each |
+| **4. Redeem** | Winning tokens pay \$1.00 USDC each |
+
+You sign in once; the platform handles on-chain execution through a **custodial wallet** so you can make predictions without approving every transaction.
+
+<CardGroup cols={2}>
+  <Card title="ezpz 101" icon="graduation-cap" href="/ezpz-101">
+    New to prediction markets? Start here.
+  </Card>
+
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Connect your wallet and place your first prediction.
+  </Card>
+
+  <Card title="Core concepts" icon="book-open" href="/concepts/markets-events">
+    Markets, tokens, prices, and resolution.
+  </Card>
+
+  <Card title="For players" icon="user" href="/guides/players">
+    Browse markets, trade, and manage your portfolio.
+  </Card>
+
+  <Card title="For makers" icon="store" href="/guides/makers">
+    Create markets, seed liquidity, and earn fees.
+  </Card>
+
+  <Card title="Portfolio" icon="chart-pie" href="/guides/portfolio">
+    Track positions, P&L, and settlement actions.
+  </Card>
+
+  <Card title="Account & security" icon="lock" href="/guides/account-security">
+    MFA, email, and player vs maker roles.
+  </Card>
+</CardGroup>
+
+## How it works
+
+| Step | What happens |
+| --- | --- |
+| **1. Deposit** | Fund your custodial wallet with USDC |
+| **2. Predict** | Buy YES or NO on a market via the AMM |
+| **3. Hold or exit** | Wait for resolution or sell via the AMM |
+| **4. Redeem** | Winning tokens pay \$1.00 USDC each |
 
 ```mermaid
 flowchart LR
@@ -57,27 +109,44 @@ flowchart LR
 ## Product verticals
 
 | Vertical | What you trade on | Route |
-|----------|-------------------|-------|
+| --- | --- | --- |
 | **Sports** | Soccer match outcomes | `/sports`, `/event/[slug]` |
 | **Crypto** | BTC up/down and price events | `/crypto` |
-| **Pump.fun** | Synthetic coin markets (graduation, mcap, up/down) | `/pumpfun` |
+| **Pump.fun** | Synthetic coin markets (graduation, mcap, up/down)Synthetic coin markets (graduation, mcap, up/down) | `/pumpfun` |
 | **Parlays** | Multi-leg accumulators (soccer) | `/parlay` |
 
-## Key concepts
+## Product verticals
+
+| Vertical | What you trade on | Route |
+| --- | --- | --- |
+| **Sports** | Soccer match outcomes | `/sports`, `/event/[slug]` |
+| **Crypto** | BTC up/down and price events | `/crypto` |
+| **Pump.fun** | Maker-created coin markets | `/pumpfun` |
+| **Parlays** | Multi-leg accumulators (soccer) | `/parlay` |
+
+## Key conceptsKey concepts
 
 <CardGroup cols={2}>
   <Card title="Markets & events" icon="calendar" href="/concepts/markets-events">
     How questions are structured and grouped.
   </Card>
+
   <Card title="Outcome tokens" icon="coins" href="/concepts/outcome-tokens">
     YES/NO SPL tokens and positions.
   </Card>
+
   <Card title="Prices & AMM" icon="chart-line" href="/concepts/prices-amm">
     How odds and pool pricing work.
   </Card>
+
   <Card title="Resolution" icon="gavel" href="/concepts/resolution">
     Settlement, disputes, and redemption.
   </Card>
+
+  <Card title="Pump.fun markets" icon="rocket" href="/concepts/pumpfun-markets">
+    Synthetic coin markets, shapes, and verified creator badge.
+  </Card>
+
   <Card title="Pump.fun markets" icon="rocket" href="/concepts/pumpfun-markets">
     Synthetic coin markets, shapes, and verified creator badge.
   </Card>
@@ -93,6 +162,34 @@ flowchart LR
   ezpz.fi does not offer a public API for third-party integrations. All trading happens through the web app.
 </Note>
 
+<CardGroup cols={2}>
+  <Card title="Markets & events" icon="calendar" href="/concepts/markets-events">
+    How questions are structured and grouped.
+  </Card>
+
+  <Card title="Outcome tokens" icon="coins" href="/concepts/outcome-tokens">
+    YES/NO SPL tokens and positions.
+  </Card>
+
+  <Card title="Prices & AMM" icon="chart-line" href="/concepts/prices-amm">
+    How odds and pool pricing work.
+  </Card>
+
+  <Card title="Resolution" icon="gavel" href="/concepts/resolution">
+    Settlement, disputes, and redemption.
+  </Card>
+</CardGroup>
+
+## Who this documentation is for
+
+- **Players** — place single predictions and parlays, track positions, withdraw funds
+- **Makers** — create and publish markets, configure odds, earn maker fees
+- **Operators** — resolve markets, handle disputes, manage treasury (oracle-admin console)
+
+<Note>
+  ezpz.fi does not offer a public API for third-party integrations. All trading happens through the web app.
+</Note>
+
 ## On-chain transparency
 
-Every market, prediction, and payout is recorded on Solana. You do not need to interact with the chain directly — but settlement is verifiable on-chain. See [Smart contracts](/resources/contracts), [On-chain data](/resources/blockchain-data), [Architecture](/concepts/architecture), and [Order lifecycle](/concepts/order-lifecycle).
+Every market, prediction, and payout is recorded on Solana. You do not need to interact with the chain directly — but settlement is verifiable on-chain. See [Smart contracts](/resources/contracts), [On-chain data](/resources/blockchain-data), [Architecture](/concepts/architecture), and [Order lifecycle](/concepts/order-lifecycle)prediction, and payout is recorded on Solana. You do not need to interact with the chain directly — but settlement is verifiable on-chain. See [Smart contracts](/resources/contracts), [On-chain data](/resources/blockchain-data), [Architecture](/concepts/architecture), and [Order lifecycle](/concepts/order-lifecycle).
