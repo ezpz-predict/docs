@@ -9,19 +9,19 @@ icon: "coins"
 When you make a prediction on ezpz.fi, you hold **outcome tokens** — SPL tokens on Solana representing YES or NO on a specific market. This is similar to Polymarket's Conditional Token Framework (CTF), adapted for Solana SPL mints.
 
 | Token | Pays if… | Value at resolution |
-|-------|----------|---------------------|
-| **YES** | Outcome occurs | $1.00 USDC |
-| **NO** | Outcome does not occur | $1.00 USDC |
+| --- | --- | --- |
+| **YES** | Outcome occurs | \$1.00 USDC |
+| **NO** | Outcome does not occur | \$1.00 USDC |
 
 ## Mint, swap, redeem
 
 The basic flow:
 
-1. **Mint** — Deposit USDC to receive equal YES + NO tokens (minus fees).
+1. **Mint** — Deposit USDC to receive equal YES \+ NO tokens (minus fees).
 2. **Swap** — Trade one side via the AMM to take a directional position.
 3. **Hold or redeem** — Keep tokens until resolution, then redeem winners for USDC.
 
-Advanced users can also **split** (mint without swapping) or **merge** (combine YES + NO back to USDC) when NegRisk multi-outcome markets launch. M1 uses the mint-and-swap path for all retail predictions.
+Advanced users can also **split** (mint without swapping) or **merge** (combine YES \+ NO back to USDC) when NegRisk multi-outcome markets launch. EZPZ uses the mint-and-swap path for all retail predictions.
 
 ```mermaid
 flowchart LR
@@ -35,9 +35,9 @@ flowchart LR
   Redeem --> USDC
 ```
 
-## Custodial holdings
+## Self-Custodial holdings
 
-Your tokens live in a **custodial wallet** managed by the platform. You see balances in **Portfolio** (`/portfolio`) without managing SPL token accounts yourself.
+Your tokens live in a **self-custodial wallet** managed by the platform. You see balances in **Portfolio** (`/portfolio`) without managing SPL token accounts yourself.
 
 <Note>
   You sign in with your personal Solana wallet for authentication. The custodial wallet executes trades on your behalf.
@@ -45,10 +45,10 @@ Your tokens live in a **custodial wallet** managed by the platform. You see bala
 
 ## Positions
 
-A **position** is your net exposure on a market — typically all YES or all NO tokens after swapping. Portfolio shows:
+A **position** is your net exposure on a market. Typically all YES or all NO tokens after swapping. Portfolio shows:
 
 - Open positions with current implied value
-- Unrealized P&amp;L
+- Unrealized P&L
 - Settlement status after resolution
 
 ## How payouts work

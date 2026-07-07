@@ -6,28 +6,28 @@ icon: "chart-line"
 
 ## Implied probability
 
-Market prices represent implied probability. A YES token trading at **45¢** implies roughly a 45% chance the outcome occurs. YES + NO prices should sum to approximately $1.00 (plus the overround fee).
+Market prices represent implied probability. A YES token trading at **45¢** implies roughly a 45% chance the outcome occurs. YES \+ NO prices should sum to approximately \$1.00 (plus the overround fee).
 
 ## The AMM venue
 
 Most markets today trade through an **automated market maker (AMM)** — a pool of YES and NO tokens that sets prices based on supply and demand.
 
 | Property | Behavior |
-|----------|----------|
-| **Pricing** | LS-LMSR cost function; trades priced by $\Delta C$ |
+| --- | --- |
+| **Pricing** |  |
 | **Legacy** | Constant-product (CPMM) pools are being phased out |
 | **Swap fee** | 0.3% retained in the pool (LP profit) |
 | **Slippage** | Larger trades move the price more |
 
 When you place a prediction:
 
-1. USDC is minted into YES + NO tokens (fees skimmed).
+1. USDC is minted into YES \+ NO tokens (fees skimmed).
 2. You swap away the side you do not want.
 3. The AMM price updates for the next trader.
 
 ## LS-LMSR in depth
 
-ezpz.fi prices AMM trades with **LS-LMSR** — *liquidity-sensitive Logarithmic Market Scoring Rule* (Othman, Sandholm, Pennock, Reeves, EC 2010). It is a **cost-function market maker**: the pool tracks how many outcome tokens it has sold and charges USDC equal to the change in a convex cost function $C(q)$.
+ezpz.fi prices AMM trades with **LS-LMSR** — _liquidity-sensitive Logarithmic Market Scoring Rule_ (Othman, Sandholm, Pennock, Reeves, EC 2010). It is a **cost-function market maker**: the pool tracks how many outcome tokens it has sold and charges USDC equal to the change in a convex cost function $C(q)$.
 
 Compared to a static LMSR (fixed liquidity parameter $b$), LS-LMSR lets **depth grow with open interest**. More tokens outstanding → larger effective liquidity → smaller price impact per dollar traded. The trade-off is that vig (house edge) is **embedded in the pricing rule** rather than added as a separate fee on top.
 
@@ -134,7 +134,7 @@ $$
 p_{\text{yes}} + p_{\text{no}} = 1 + v(q) \geq 1
 $$
 
-The excess $v(q) \geq 0$ is **embedded vig** — it accrues to pool NAV, not a separate skim. At heavy skew the favorite's raw marginal price can exceed \$1; charts clamp display to $(0,1)$ but **trades still use $\Delta C$**.
+The excess $v(q) \geq 0$ is **embedded vig** — it accrues to pool NAV, not a separate skim. At heavy skew the favorite's raw marginal price can exceed \$1; charts clamp display to $(0,1)$ but **trades still use** $\Delta C$.
 
 ### Implied fair probability
 
@@ -151,7 +151,7 @@ This $\sigma$ is what "60% odds" means in the authoring UI. Raw marginals $p_i$ 
 
 At pool creation the maker supplies seed USDC $S$ and declared probability $p^*$ (in basis points). The program derives initial $(q_{\text{yes}}, q_{\text{no}})$ so that:
 
-1. $\sigma_{\text{yes}} \approx p^*$ (within one price tick), and  
+1. $\sigma_{\text{yes}} \approx p^*$ (within one price tick), and
 2. **Worst-case loss** is bounded by the seed.
 
 Let $P = \max(p^*, 1-p^*)$, logit $L = \ln\!\big(P/(1-P)\big)$, and $\rho = (1-P)/P$. Define:
@@ -183,18 +183,18 @@ $$
 A larger $b$ flattens the cost curve locally, so **the same \$ stake moves prices less** after the market has absorbed more flow. Depth is endogenous to activity, not a fixed constant set only at launch.
 
 | Quantity | Effect on depth |
-|----------|-----------------|
-| More trading / higher $T$ | Larger $b$ → less slippage per \$ |
-| Higher $\alpha$ at creation | Deeper at every $T$, but more vig ($2\alpha\ln 2$ at even odds) |
-| Maker seed $S$ | Caps worst-case subsidy; does not cap how large $T$ can grow |
+| --- | --- |
+|  |  |
+|  |  |
+|  |  |
 
 ### What you see in the UI
 
 | Display | Math object | Notes |
-|---------|-------------|-------|
-| **Current price** | Clamped marginal $p_i$ or implied $\sigma$ | Orientation: buying YES raises YES price |
-| **Trade preview** | Exact $\Delta C$ for your stake | Includes slippage + embedded vig |
-| **Fees row** | Platform/maker fees on mint path | Separate from LS-LMSR vig in $C$ |
+| --- | --- | --- |
+| **Current price** | Orientation: buying YES raises YES price |  |
+| **Trade preview** | Includes slippage \+ embedded vig |  |
+| **Fees row** | Platform/maker fees on mint path |  |
 
 See [Architecture](/concepts/architecture) for on-chain program layout and [Venues](/concepts/venues) for AMM vs CLOB.
 
