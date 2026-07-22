@@ -10,7 +10,7 @@ Market prices represent implied probability. A YES token trading at **45¢** imp
 
 ## The AMM venue
 
-Most markets today trade through an **automated market maker (AMM)** — a pool of YES and NO tokens that sets prices based on supply and demand.
+Most markets today trade through an **automated market maker (AMM)**. Which is a pool of YES and NO tokens that sets prices based on supply and demand.
 
 | Property | Behavior |
 | --- | --- |
@@ -134,7 +134,7 @@ $$
 p_{\text{yes}} + p_{\text{no}} = 1 + v(q) \geq 1
 $$
 
-The excess $$v(q) \geq 0$$ is **embedded vig** — it accrues to pool NAV, not a separate skim. At heavy skew the favorite's raw marginal price can exceed \$1; charts clamp display to $$(0,1)$$ but **trades still use** $$\Delta C$$.
+The excess $$v(q) \geq 0$$ is **embedded vig**, it accrues to pool NAV, not a separate skim. At heavy skew the favorite's raw marginal price can exceed \$1; charts clamp display to $$(0,1)$$ but **trades still use** $$\Delta C$$.
 
 ### Implied fair probability
 
@@ -145,7 +145,7 @@ $$
 = \frac{1}{1 + e^{-(q_{\text{yes}} - q_{\text{no}})/b}}
 $$
 
-This $$\sigma$$ is what "60% odds" means in the authoring UI. Raw marginals $$p_i$$ sit at or above $$\sigma_i$$ — the spread is the rule's built-in margin.
+This $$\sigma$$ is what "60% odds" means in the authoring UI. Raw marginals $$p_i$$ sit at or above $$\sigma_i$$ ,the spread is the rule's built-in margin.
 
 ### Seeding at chosen odds
 
@@ -168,11 +168,11 @@ $$
 \text{WCL}(q_0) = C(q_0) - \min(q_{\text{yes},0}, q_{\text{no},0}) = \alpha T \ln\!\frac{1}{1-P} \leq S
 $$
 
-That is why seed USDC is the maker's **collateral against subsidy** — the pool cannot lose more than the seed in the adversarial orthant bound.
+That is why seed USDC is the maker's collateral against subsidy**.** Which is vital because unlike token creators that do no renounce their LP, this prediction market pool cannot lose more than the seed in the adversarial orthant bound.
 
 ### Why depth grows with volume
 
-Static LMSR keeps $$b$$ fixed, so a popular market eventually becomes **too shallow** — each marginal trade moves prices sharply.
+Static LMSR keeps $$b$$ fixed, so a popular market eventually becomes too shallow. Each marginal trade moves prices sharply.
 
 LS-LMSR ties $$b = \alpha T$$ to open interest. As players buy YES or NO:
 
