@@ -9,7 +9,7 @@ icon: "shuffle"
 ezpz.fi supports two ways to trade outcome tokens:
 
 | Venue | How it works | M1 status |
-|-------|--------------|-----------|
+| --- | --- | --- |
 | **AMM** | Swap against a liquidity pool | **Live** — default for retail predictions |
 | **CLOB** | Match limit orders off-chain, settle on-chain | **Future** — v2 release |
 
@@ -34,7 +34,7 @@ The CLOB (central limit order book) works like Polymarket's order book:
 
 Key properties:
 
-- No custody — the exchange program verifies signatures and swaps tokens between makers
+- No custody - the exchange program verifies signatures and swaps tokens between makers
 - Limit orders rest on the book until filled or cancelled
 - Requires delegate approval on your token account (similar to Polymarket's `setApprovalForAll`)
 
@@ -45,7 +45,7 @@ Key properties:
 ## Why two venues?
 
 | Use case | Better venue |
-|----------|--------------|
+| --- | --- |
 | Quick retail predictions | AMM |
 | Professional market making | CLOB |
 | Tight spreads on liquid markets | CLOB |
