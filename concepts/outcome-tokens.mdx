@@ -6,9 +6,9 @@ icon: "coins"
 
 ## Outcome tokens
 
-When you make a prediction on ezpz.fi, you hold **outcome tokens** — SPL tokens on Solana representing YES or NO on a specific market. This is similar to Polymarket's Conditional Token Framework (CTF), adapted for Solana SPL mints.
+When you make a prediction on ezpz.fi, you hold **outcome tokens** which are SPL tokens on Solana representing YES or NO on a specific market. This is similar to Polymarket's Conditional Token Framework (CTF), adapted for Solana SPL mints.
 
-| Token | Pays if… | Value at resolution |
+| Token | Pays if. | Value at resolution |
 | --- | --- | --- |
 | **YES** | Outcome occurs | \$1.00 USDC |
 | **NO** | Outcome does not occur | \$1.00 USDC |
@@ -37,7 +37,7 @@ flowchart LR
 
 ## Self-Custodial holdings
 
-Your tokens live in a **self-custodial wallet** managed by the platform. You see balances in **Portfolio** (`/portfolio`) without managing SPL token accounts yourself.
+Your tokens live in a **self-custodial wallet** managed by yourself. You see balances in **Portfolio** (`/portfolio`) without managing SPL token accounts yourself.
 
 <Note>
   You sign in with your personal Solana wallet for authentication. The custodial wallet executes trades on your behalf.
@@ -55,9 +55,9 @@ A **position** is your net exposure on a market. Typically all YES or all NO tok
 
 Each market has an isolated **USDC vault**. When you win:
 
-- You burn your winning tokens via `redeem`
-- USDC flows from the market vault to your custodial wallet
-- Losers' stakes in the same vault fund the payout
+- Step 1: You burn your winning tokens via `redeem `
+- Step 2: USDC flows from the market vault to your custodial wallet
+- Step 3: Losers' stakes in the same vault fund the payout
 
 The platform treasury and maker wallets do **not** pay winners directly. Markets are self-funded escrows.
 

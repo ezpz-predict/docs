@@ -6,7 +6,7 @@ icon: "gavel"
 
 ## Who resolves markets
 
-**Operators** resolve markets through the oracle-admin console — a separate application from the public ezpz.fi site. Operators review evidence, compare against the declared resolution source, and submit the winning outcome on-chain.
+**Operators** resolve markets through the oracle-admin console, a separate application from the public ezpz.fi site. Operators review evidence, compare against the declared resolution source, and submit the winning outcome on-chain.
 
 ## Resolution timeline
 
@@ -26,7 +26,7 @@ sequenceDiagram
 ```
 
 | Rule | Duration | Effect |
-|------|----------|--------|
+| --- | --- | --- |
 | **Prediction cutoff** | 15 min before event end | No new predictions or mints |
 | **Settlement cooldown** | 2 hours after expiry | Operator cannot resolve yet |
 | **Dispute window** | 24 hours after resolution | Redemption blocked; disputes can be filed |
@@ -37,12 +37,12 @@ sequenceDiagram
 After the dispute window passes, winners redeem their tokens:
 
 - Winning tokens → 1 USDC each (from the market vault)
-- Losing tokens → $0
+- Losing tokens → \$0
 
 Redemption is executed on-chain through your custodial wallet. See [Redeem tokens](/trading/redeem) for the player walkthrough.
 
 | Phase | Can you redeem? |
-|-------|-----------------|
+| --- | --- |
 | Open / Closed | No — wait for resolution |
 | Resolved (dispute window active) | No — 24h hold |
 | Resolved (dispute window passed) | Yes — winning tokens only |
@@ -80,7 +80,7 @@ A market may be **voided** if:
 - An operator cancels it before resolution
 - It remains unresolved 7 days after expiry (auto-void)
 
-Voided markets enable **refunds** — participants recover their stake instead of a winning side being declared.
+Voided markets enable **refunds**, participants recover their stake instead of a winning side being declared.
 
 ## Transparency
 

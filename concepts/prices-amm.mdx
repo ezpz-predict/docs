@@ -14,7 +14,7 @@ Most markets today trade through an **automated market maker (AMM)** — a pool 
 
 | Property | Behavior |
 | --- | --- |
-| **Pricing** |  |
+| **Pricing** | (tbc) |
 | **Legacy** | Constant-product (CPMM) pools are being phased out |
 | **Swap fee** | 0.3% retained in the pool (LP profit) |
 | **Slippage** | Larger trades move the price more |
@@ -27,9 +27,9 @@ When you place a prediction:
 
 ## LS-LMSR in depth
 
-ezpz.fi prices AMM trades with **LS-LMSR** — _liquidity-sensitive Logarithmic Market Scoring Rule_ (Othman, Sandholm, Pennock, Reeves, EC 2010). It is a **cost-function market maker**: the pool tracks how many outcome tokens it has sold and charges USDC equal to the change in a convex cost function $C(q)$.
+ezpz.fi prices AMM trades with **LS-LMSR** (_liquidity-sensitive Logarithmic Market Scoring Rule)_ (Othman, Sandholm, Pennock, Reeves, EC 2010). It is a **cost-function market maker**: the pool tracks how many outcome tokens it has sold and charges USDC equal to the change in a convex cost function $$C(q)$$.
 
-Compared to a static LMSR (fixed liquidity parameter $b$), LS-LMSR lets **depth grow with open interest**. More tokens outstanding → larger effective liquidity → smaller price impact per dollar traded. The trade-off is that vig (house edge) is **embedded in the pricing rule** rather than added as a separate fee on top.
+Compared to a static LMSR (fixed liquidity parameter $$b$$), LS-LMSR lets **depth grow with open interest**. More tokens outstanding → larger effective liquidity → smaller price impact per dollar traded. The trade-off is that vig (house edge) is **embedded in the pricing rule** rather than added as a separate fee on top.
 
 ### State
 
@@ -39,29 +39,29 @@ $$
 q = (q_{\text{yes}},\ q_{\text{no}})
 $$
 
-These are the net YES and NO tokens **sold by the pool since inception**, including the maker's seed quantities. There is no reserve-ratio formula like $x \cdot y = k$.
+These are the net YES and NO tokens **sold by the pool since inception**, including the maker's seed quantities. There is no reserve-ratio formula like $$x \cdot y = k$$.
 
 ### Liquidity parameter
 
-Liquidity scales with total outstanding quantity $T = q_{\text{yes}} + q_{\text{no}}$:
+Liquidity scales with total outstanding quantity $$T = q_{\text{yes}} + q_{\text{no}}$$:
 
 $$
 b(q) = \alpha \,(q_{\text{yes}} + q_{\text{no}}) = \alpha T
 $$
 
-where $\alpha > 0$ is fixed at pool creation. When $\alpha$ is larger, the pool is **deeper** (more vig, less slippage). At uniform prices the total overround is approximately:
+where $$\alpha > 0$$ is fixed at pool creation. When $$\alpha$$ is larger, the pool is **deeper** (more vig, less slippage). At uniform prices the total overround is approximately:
 
 $$
 p_{\text{yes}} + p_{\text{no}} = 1 + 2\alpha \ln 2
 $$
 
-So a target vig of $v$ cents implies:
+So a target vig of $$v$$ cents implies:
 
 $$
 \alpha \approx \frac{v}{2 \ln 2}
 $$
 
-(e.g. $v = 0.05 \Rightarrow \alpha \approx 0.036$ for a ~5¢ overround at even odds).
+(e.g. $$v = 0.05 \Rightarrow \alpha \approx 0.036$$ for a ~5¢ overround at even odds).
 
 ### Cost function
 
@@ -71,25 +71,25 @@ $$
 C(q) = b(q)\,\ln\!\left(e^{q_{\text{yes}}/b(q)} + e^{q_{\text{no}}/b(q)}\right)
 $$
 
-**Numerically stable equivalent** (used on-chain): let $m = \max(q_{\text{yes}}, q_{\text{no}})$, $d = m - \min(q_{\text{yes}}, q_{\text{no}})$, and $b = \alpha T$. Then:
+**Numerically stable equivalent** (used on-chain): let $$m = \max(q_{\text{yes}}, q_{\text{no}})$$, $$d = m - \min(q_{\text{yes}}, q_{\text{no}})$$, and $$b = \alpha T$$. Then:
 
 $$
 C(q) = m + b\,\ln\!\left(1 + e^{-d/b}\right)
 $$
 
-Only the **difference** $d/b$ is exponentiated, which keeps fixed-point math safe at large $T$.
+Only the **difference** $$d/b$$ is exponentiated, which keeps fixed-point math safe at large $$T$$.
 
 ### Trade pricing algorithm
 
 Trades are **not** priced at a displayed marginal quote. The economic rule is always the cost-function difference.
 
-**Buy** $\Delta$ tokens of side $i$ (e.g. YES):
+**Buy** $$\Delta$$ tokens of side $$i$$ (e.g. YES):
 
 $$
 \text{cost} = C(q_i + \Delta,\ q_{\neg i}) - C(q_{\text{yes}}, q_{\text{no}})
 $$
 
-**Sell** $\Delta$ tokens of side $i$:
+**Sell** $$\Delta$$ tokens of side $$i$$:
 
 $$
 \text{payout} = C(q_{\text{yes}}, q_{\text{no}}) - C(q_i - \Delta,\ q_{\neg i})
@@ -109,24 +109,24 @@ flowchart TD
   G --> H[Update q to q prime]
 ```
 
-Because $C$ is **convex**, $\Delta C$ per token rises as you trade more in one direction — that is AMM slippage.
+Because $$C$$ is **convex**, $$\Delta C$$ per token rises as you trade more in one direction — that is AMM slippage.
 
 ### Marginal prices (display only)
 
-The **marginal price** of side $i$ is the partial derivative:
+The **marginal price** of side $$i$$ is the partial derivative:
 
 $$
 p_i = \frac{\partial C}{\partial q_i}
 $$
 
-For binary LS-LMSR, the gradient includes an extra $\alpha$ term because $b$ depends on $q$. In scale-free coordinates $u = q_{\max}/T$ and $w = e^{-d/b}$:
+For binary LS-LMSR, the gradient includes an extra $$\alpha$$ term because $$b$$ depends on $$q$$. In scale-free coordinates $$u = q_{\max}/T$$ and $$w = e^{-d/b}$$:
 
 $$
 p_{\max} = u + g + (1-u)\frac{1-w}{1+w}, \qquad
 p_{\min} = u + g - u\frac{1-w}{1+w}
 $$
 
-where $g = \alpha \ln(1+w)$.
+where $$g = \alpha \ln(1+w)$$.
 
 Properties:
 
@@ -134,7 +134,7 @@ $$
 p_{\text{yes}} + p_{\text{no}} = 1 + v(q) \geq 1
 $$
 
-The excess $v(q) \geq 0$ is **embedded vig** — it accrues to pool NAV, not a separate skim. At heavy skew the favorite's raw marginal price can exceed \$1; charts clamp display to $(0,1)$ but **trades still use** $\Delta C$.
+The excess $$v(q) \geq 0$$ is **embedded vig** — it accrues to pool NAV, not a separate skim. At heavy skew the favorite's raw marginal price can exceed \$1; charts clamp display to $$(0,1)$$ but **trades still use** $$\Delta C$$.
 
 ### Implied fair probability
 
@@ -145,22 +145,22 @@ $$
 = \frac{1}{1 + e^{-(q_{\text{yes}} - q_{\text{no}})/b}}
 $$
 
-This $\sigma$ is what "60% odds" means in the authoring UI. Raw marginals $p_i$ sit at or above $\sigma_i$ — the spread is the rule's built-in margin.
+This $$\sigma$$ is what "60% odds" means in the authoring UI. Raw marginals $$p_i$$ sit at or above $$\sigma_i$$ — the spread is the rule's built-in margin.
 
 ### Seeding at chosen odds
 
-At pool creation the maker supplies seed USDC $S$ and declared probability $p^*$ (in basis points). The program derives initial $(q_{\text{yes}}, q_{\text{no}})$ so that:
+At pool creation the maker supplies seed USDC $$S$$ and declared probability $$p^*$$ (in basis points). The program derives initial $$(q_{\text{yes}}, q_{\text{no}})$$ so that:
 
-1. $\sigma_{\text{yes}} \approx p^*$ (within one price tick), and
+1. $$\sigma_{\text{yes}} \approx p^*$$ (within one price tick), and
 2. **Worst-case loss** is bounded by the seed.
 
-Let $P = \max(p^*, 1-p^*)$, logit $L = \ln\!\big(P/(1-P)\big)$, and $\rho = (1-P)/P$. Define:
+Let $$P = \max(p^*, 1-p^*)$$, logit $$L = \ln\!\big(P/(1-P)\big)$$, and $$\rho = (1-P)/P$$. Define:
 
 $$
 K = L + \ln(1+\rho), \qquad T = \frac{S}{\alpha K}
 $$
 
-Then assign total quantity $T$ across sides with skew $\alpha T L = q_{\max} - q_{\min}$, putting $q_{\max}$ on YES when $p^* \geq \tfrac{1}{2}$.
+Then assign total quantity $$T$$ across sides with skew $$\alpha T L = q_{\max} - q_{\min}$$, putting $$q_{\max}$$ on YES when $$p^* \geq \tfrac{1}{2}$$.
 
 The **worst-case loss** at the seed state is:
 
@@ -172,15 +172,15 @@ That is why seed USDC is the maker's **collateral against subsidy** — the pool
 
 ### Why depth grows with volume
 
-Static LMSR keeps $b$ fixed, so a popular market eventually becomes **too shallow** — each marginal trade moves prices sharply.
+Static LMSR keeps $$b$$ fixed, so a popular market eventually becomes **too shallow** — each marginal trade moves prices sharply.
 
-LS-LMSR ties $b = \alpha T$ to open interest. As players buy YES or NO:
+LS-LMSR ties $$b = \alpha T$$ to open interest. As players buy YES or NO:
 
 $$
 T = q_{\text{yes}} + q_{\text{no}} \uparrow \quad \Rightarrow \quad b \uparrow
 $$
 
-A larger $b$ flattens the cost curve locally, so **the same \$ stake moves prices less** after the market has absorbed more flow. Depth is endogenous to activity, not a fixed constant set only at launch.
+A larger $$b$$ flattens the cost curve locally, so **the same \$ stake moves prices less** after the market has absorbed more flow. Depth is endogenous to activity, not a fixed constant set only at launch.
 
 | Quantity | Effect on depth |
 | --- | --- |
