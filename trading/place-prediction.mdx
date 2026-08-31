@@ -9,8 +9,8 @@ icon: "ticket"
 Navigate to a vertical:
 
 | Vertical | Route | Example |
-|----------|-------|---------|
-| Home feed | `/` | Featured markets across categories |
+| --- | --- | --- |
+| Home feed | `/home` | Featured markets across categories |
 | Sports | `/sports` | Soccer match lines |
 | Crypto | `/crypto` | BTC up/down, price events |
 | Pump.fun | `/pumpfun` | Graduation, mcap, and up/down coin markets |
@@ -23,11 +23,11 @@ See [Trade pump.fun markets](/trading/pumpfun-predictions) for up/down pending w
 Before you confirm, the panel shows:
 
 | Field | Meaning |
-|-------|---------|
+| --- | --- |
 | **Side** | YES or NO (or named outcome) |
 | **Price** | Current implied probability |
 | **Stake** | USDC for your prediction |
-| **Fees** | Platform overround + maker fee |
+| **Fees** | Platform overround \+ maker fee |
 | **Shares** | Outcome tokens you receive |
 | **Potential payout** | USDC returned if you win |
 
@@ -45,7 +45,7 @@ Before you confirm, the panel shows:
     Check fees, shares, and potential payout.
   </Step>
   <Step title="Confirm">
-    Click **Confirm**. The platform executes mint + swap on your custodial wallet.
+    Click **Confirm**. The platform executes mint \+ swap on your custodial wallet.
   </Step>
   <Step title="Verify">
     Your position appears in **Portfolio** within seconds.
@@ -58,15 +58,15 @@ No wallet popup is required for custodial trades.
 
 Behind the scenes:
 
-1. **Mint** — Your USDC is converted to YES + NO tokens. Platform and maker fees are skimmed.
-2. **Swap** — The side you did not pick is swapped via the AMM for more of your chosen side.
-3. **Position** — You hold outcome tokens representing your prediction.
+1. **Mint** : Your USDC is converted to YES \+ NO tokens. Platform and maker fees are skimmed.
+2. **Swap** : The side you did not pick is swapped via the AMM for more of your chosen side.
+3. **Position** : You hold outcome tokens representing your prediction.
 
 ## After you predict
 
 | Scenario | What happens |
-|----------|--------------|
-| **You win** | [Redeem](/trading/redeem) tokens after resolution + dispute window |
+| --- | --- |
+| **You win** | [Redeem](/trading/redeem) tokens after resolution \+ dispute window |
 | **You lose** | Tokens become worthless; stake stays in market vault |
 | **Sell early** | [Sell](/trading/sell-prediction) tokens via AMM if pool has liquidity |
 | **Market voided** | [Refund](/trading/refund) your stake |

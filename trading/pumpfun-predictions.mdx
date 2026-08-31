@@ -11,7 +11,7 @@ icon: "chart-line"
     Go to **Pump.fun** (`/pumpfun`) from the main navigation.
   </Step>
   <Step title="Browse or search">
-    The grid lists **platform-created markets only** — coins with at least one published question on ezpz. Use the search box to filter by title.
+    The grid lists **platform-created markets only**. Coins with at least one published market on ezpz. Use the search box to filter by title.
   </Step>
   <Step title="Open a coin event">
     Click a card to open the coin event page (`/pumpfun/[slug]`) with price chart, market list, and trade panel.
@@ -25,14 +25,14 @@ icon: "chart-line"
 ## Read the coin event page
 
 | Element | What it tells you |
-|---------|-------------------|
+| --- | --- |
 | **Coin header** | Name, ticker, live price, 24h change (from pump.fun data) |
 | **Verified creator chip** | This market's author linked the coin's pump.fun creator wallet |
 | **Market rows** | Each synthetic question with Yes/No prices and expiry |
 | **Price chart** | Recent coin price history |
 | **Trade panel** | Stake, fees, shares, and potential payout for the selected market |
 
-A single coin can have multiple markets — graduation, different mcap thresholds, and rolling five-minute up/down windows.
+A single coin can have multiple markets such as; graduation, different mcap thresholds, and rolling five-minute up/down windows.
 
 ## Market shapes and what to expect
 
@@ -48,9 +48,9 @@ These markets are **open for trading** as soon as they are published and seeded.
 These markets move through two phases:
 
 | Phase | UI state | Can you trade? |
-|-------|----------|----------------|
-| **Pending** | "Opens at HH:MM UTC" — reference price not yet set | No |
-| **Open** | Price to Beat shown — five-minute window live | Yes |
+| --- | --- | --- |
+| **Pending** | "Opens at HH:MM UTC" reference price not yet set | No |
+| **Open** | Price to Beat shown five-minute window live | Yes |
 | **Closed / resolved** | Outcome declared | Redeem or move on |
 
 The **Price to Beat** is the reference captured at window open. YES (Up) wins if the coin's price at window close is **≥** that reference.
@@ -74,14 +74,14 @@ The trade flow matches other verticals. See [Place a prediction](/trading/place-
     Check price, fees, shares, and potential payout. Large stakes move the AMM price.
   </Step>
   <Step title="Confirm">
-    Click **Confirm**. The platform executes mint + swap on your custodial wallet — no per-trade wallet popup.
+    Click **Confirm**. The platform executes mint \+ swap on your custodial wallet, no per-trade wallet popup.
   </Step>
 </Steps>
 
 ## After you predict
 
 | Scenario | Action |
-|----------|--------|
+| --- | --- |
 | **Win** | [Redeem](/trading/redeem) after resolution and the dispute window |
 | **Lose** | Tokens expire worthless |
 | **Sell early** | [Sell](/trading/sell-prediction) via AMM if the pool has liquidity |
@@ -98,7 +98,7 @@ Pump.fun markets **cannot** be added to parlays yet. Parlays are soccer-only tod
 Most pump.fun shapes resolve automatically via platform crons shortly after expiry:
 
 | Shape | Typical resolution |
-|-------|-------------------|
+| --- | --- |
 | Graduation | Graduation flag at expiry |
 | Mcap threshold | Recorded market cap at expiry |
 | Up/down | Price comparison at window close |
@@ -108,7 +108,7 @@ After on-chain resolution, the standard **24-hour dispute window** applies befor
 ## Troubleshooting
 
 | Issue | Likely cause | What to do |
-|-------|--------------|------------|
+| --- | --- | --- |
 | Market not yet open | Up/down still pending | Wait for reference capture at window open |
 | Empty `/pumpfun` feed | No published markets | Check back later or ask makers in the community |
 | Trade disabled near expiry | Cutoff passed | Market closed to new predictions |
