@@ -6,7 +6,7 @@ icon: "lock"
 
 ## Sign in
 
-ezpz.fi uses your **Solana wallet** (Phantom, Solflare, etc.) for authentication. Connecting your wallet creates or links a **custodial account** used for trading.
+ezpz.fi uses your **Solana wallet** (Phantom, Solflare, etc.) for authentication. Connecting your wallet creates or links a **custodial account** used for trading. EZPZ also uses privy if users choose to utilize this function.
 
 You sign the wallet connection once. Most predictions execute without a per-trade wallet popup.
 
@@ -15,7 +15,7 @@ You sign the wallet connection once. Most predictions execute without a per-trad
 Open **Settings** (`/settings`) to:
 
 | Setting | Purpose |
-|---------|---------|
+| --- | --- |
 | **Email** | Account recovery and notifications |
 | **MFA (TOTP)** | Required for withdrawals on mainnet; recommended for all accounts |
 
@@ -32,7 +32,7 @@ Open **Settings** (`/settings`) to:
 </Steps>
 
 <Warning>
-  Without MFA, withdrawals may be blocked on mainnet. Store recovery codes securely — losing both your authenticator and recovery codes can lock you out of sensitive actions.
+  Without MFA, withdrawals may be blocked on mainnet. Store recovery codes securely - losing both your authenticator and recovery codes can lock you out of sensitive actions.
 </Warning>
 
 ## Player vs maker accounts
@@ -40,11 +40,11 @@ Open **Settings** (`/settings`) to:
 **Players** and **makers** are separate account types:
 
 | Role | Can do |
-|------|--------|
+| --- | --- |
 | **Player** | Browse, predict, parlay, withdraw |
 | **Maker** | Create markets, seed liquidity, claim maker fees |
 
-You **switch roles** via account switching — you cannot upgrade a player account in place. Makers also need MFA and a funded custodial wallet before publishing.
+You **switch roles** via account switching. You cannot upgrade a player account in place. Makers also need MFA and a funded custodial wallet before publishing.
 
 See [For makers](/guides/makers) for the maker onboarding flow.
 
@@ -56,7 +56,7 @@ Your custodial wallet is a Solana keypair managed by the platform:
 - Submits trades on your behalf after UI confirmation
 - Visible on [Solana Explorer](https://explorer.solana.com) by address
 
-Funds remain on-chain. The platform does not commingle your USDC with a house bankroll — market vaults hold prediction collateral separately.
+Funds remain on-chain. The platform does not commingle your USDC with a house bankroll. Market vaults hold prediction collateral separately.
 
 ## Withdrawal security
 
@@ -68,12 +68,8 @@ Withdrawals require:
 
 See [Deposit & withdraw](/trading/deposit-withdraw).
 
-## Session and sign-out
-
-Sign out from the account menu to disconnect your session. Your on-chain balances and positions persist — reconnect with the same wallet to access them.
-
 ## Related
 
-- [Quickstart](/quickstart) — first-time setup
-- [Architecture](/concepts/architecture) — custodial model detail
+- [Quickstart](/quickstart) - first-time setup
+- [Architecture](/concepts/architecture) - custodial model detail
 - [Geographic restrictions](/resources/geographic-restrictions)

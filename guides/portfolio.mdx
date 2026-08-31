@@ -1,6 +1,6 @@
 ---
 title: "Portfolio"
-description: "Track positions, P&L, and settlement actions on ezpz.fi."
+description: "Track positions, P&L, and settlement actions on ezpz.fi"
 icon: "chart-pie"
 ---
 
@@ -9,9 +9,9 @@ icon: "chart-pie"
 ## What you see
 
 | Section | Contents |
-|---------|----------|
+| --- | --- |
 | **Open positions** | Single-market tokens and active parlays |
-| **Settled** | Resolved predictions with realized P&amp;L |
+| **Settled** | Resolved predictions with realized P&L |
 | **Actions** | Redeem, refund, sell when available |
 
 Each row shows the market, side, stake, current value, and status.
@@ -20,24 +20,24 @@ Each row shows the market, side, stake, current value, and status.
 
 Open single-market positions show:
 
-- **Side** — YES or NO tokens held
-- **Entry price** — average cost per token
-- **Current value** — implied value from AMM price
-- **Unrealized P&amp;L** — mark-to-market gain or loss
-- **Status** — Open, Closed, Resolved, Voided
+- **Side** - YES or NO tokens held
+- **Entry price** - average cost per token
+- **Current value** - implied value from AMM price
+- **Unrealized P&L** - mark-to-market gain or loss
+- **Status** - Open, Closed, Resolved, Voided
 
 ### Actions on open positions
 
 | Action | When available |
-|--------|----------------|
+| --- | --- |
 | [Sell](/trading/sell-prediction) | Market open; pool has liquidity |
 | View market | Always |
 
 ## After resolution
 
 | Market status | Your action |
-|---------------|-------------|
-| **Resolved** (dispute window active) | Wait — redemption blocked |
+| --- | --- |
+| **Resolved** (dispute window active) | Wait - redemption blocked |
 | **Resolved** (dispute window passed) | [Redeem](/trading/redeem) winning tokens |
 | **Voided** | [Refund](/trading/refund) stake |
 | **Disputed** | Wait for operator decision |
@@ -49,14 +49,14 @@ You can [file a dispute](/concepts/resolution#disputes) within 24 hours of resol
 Parlay rows show **per-leg status** (pending, won, lost, void). The parlay settles when all legs reach a final state:
 
 - All win → max payout
-- Any loss → $0
+- Any loss → \$0
 - All void → full refund
 
 See [Build a parlay](/trading/build-parlay).
 
 ## Activity history
 
-Portfolio and **Activity** show transaction history: mints, swaps, redemptions, refunds, and withdrawals. Failed trades appear as reverted — your balance is not debited unless the transaction confirmed.
+Portfolio and **Activity** show transaction history: mints, swaps, redemptions, refunds, and withdrawals. Failed trades appear as reverted and your balance is not debited unless the transaction confirmed.
 
 ## CLOB orders (future)
 

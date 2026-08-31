@@ -1,6 +1,6 @@
 ---
 title: "Trading overview"
-description: "How predictions work on ezpz.fi end to end."
+description: "How extention markets work on ezpz.fi end to end."
 icon: "arrows-rotate"
 ---
 
@@ -10,7 +10,7 @@ ezpz.fi uses a **custodial-first** model:
 
 1. You sign in with your Solana wallet once.
 2. The platform holds a custodial keypair linked to your account.
-3. When you confirm a prediction in the UI, the platform submits the on-chain transaction — no wallet popup per trade.
+3. When you confirm a prediction in the UI, the platform submits the on-chain transaction. No wallet popup per trade.
 
 This keeps the experience fast while settlement remains on Solana.
 
@@ -21,7 +21,7 @@ This keeps the experience fast while settlement remains on Solana.
 ## Single predictions vs parlays
 
 | Type | Funding source | How odds work |
-|------|----------------|---------------|
+| --- | --- | --- |
 | **Single prediction** | Market USDC vault via AMM | Price at time of trade |
 | **Parlay** | Parlay LP pool | Leg odds multiplied together |
 
@@ -30,7 +30,7 @@ See [Place a prediction](/trading/place-prediction) and [Build a parlay](/tradin
 ## Funding and exits
 
 | Action | Guide |
-|--------|-------|
+| --- | --- |
 | Deposit / withdraw USDC | [Deposit & withdraw](/trading/deposit-withdraw) |
 | Sell via AMM | [Sell a prediction](/trading/sell-prediction) |
 | Redeem after resolution | [Redeem tokens](/trading/redeem) |
@@ -61,7 +61,7 @@ M1 retail trading uses the **AMM**. You swap against a liquidity pool at the cur
 Three separate fees apply at different stages. They are never combined into one line item:
 
 | Fee | When | Rate |
-|-----|------|------|
+| --- | --- | --- |
 | Platform overround | Mint | 1–5% |
 | Maker fee | Mint | 0.5–5% (maker sets) |
 | AMM swap fee | Swap | 0.3% |
@@ -81,7 +81,7 @@ Each market is an isolated escrow:
 ## Time rules
 
 | Rule | Cutoff |
-|------|--------|
+| --- | --- |
 | New predictions | 15 min before event end |
 | Resolution | 2h after expiry (operator) |
 | Redemption | After 24h dispute window |
@@ -90,6 +90,6 @@ Each market is an isolated escrow:
 
 Track everything in **Portfolio** (`/portfolio`):
 
-- Open positions and unrealized P&amp;L
-- Settled predictions and realized P&amp;L
+- Open positions and unrealized P&L
+- Settled predictions and realized P&L
 - Withdrawal history
