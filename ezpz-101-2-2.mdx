@@ -1,29 +1,17 @@
 ---
 title: "Pillar 2"
-description: "How synthetic markets extend the lifespan of tokens whilst creating utility"
+description: "How synthetic markets extend the lifespan of tokens whilst creating utility through seeded engagement pools."
 icon: "graduation-cap"
 ---
 
-# Pillar 1
+# Game-pool Mechanism
 
-EZPZ builds synthetic markets and utility games on top of existing liquidity on Polymarket, Kalshi, and [pump.fun](http://pump.fun), rather than competing with those platforms directly. This extender market explanation covers the [pump.fun](http://pump.fun)-native mechanism: the POT (proof-of-transaction) system, which layers a synthetic binary prediction market on top of any live token.
+![Ezpz Game Pool Flow V2](/images/ezpz_game_pool_flow_v2.png "Ezpz Game Pool Flow V2")
 
-The mechanism is an extension of a synthetic prediction market in which creators choose from pre-set parameters tied to near-future events that could plausibly happen to their token (for example, a price move within a time window, bonding-curve timing, red candles, or liquidity pumps). Presently, we have pre-set parameters for creators to choose from. We will add more options in the near future.
+For the above flow chart, we will be using the token called \$Catai, (this is just used as an example to explain the entire flow).
 
-# Live integration
-
-EZPZ maintains a direct live feed of every token being created and traded on [pump.fun](http://pump.fun). When a token eg call it "Meme Abc" launches, it is reflected on EZPZ in real time, and its creator (or any user) can open synthetic markets on it. An initial pre-made set of parameters keeps this simple before creators graduate to full customization.
-
-With zero-decay in price differentials, creators and users alike will be to capitalize on our offerings and maximize their returns accordingly.
-
-# PoT Mechanism
-
-Once a token is live, the mechanism runs in four stages:
-
-![EZPZ POT Mechanism Flow](/images/EZPZ_POT_Mechanism_Flow.png "EZPZ POT Mechanism Flow")
-
-This flowchart depicts any coin that is on Solana, predominantly [pump.fun](http://pump.fun) tokens.
-
--Creator sets synthetic prediction market and picks a pre-set parameter tied to a near-term event on their token.<br />-Creator provides USDC or SOL for synthetic markets. Locks any amount of their choosing into a POT via smart contract, as a signal of conviction to fund payouts.<br />-Users can choose to predict whether it will be a yes or no and participants use either USDC or SOL alike for the market.<br />-Market resolves and closes. Wins and losses are added to or deducted from the POT accordingly.
-
-EZPZ has a fully integrated swapping and bridging mechanism so as to allow users a seamless trading experience. Users will be able to trade with and pay with USDC alone. Everything feature is created so users do not need to toggle across different platforms.
+1. Once a synthetic market exists, lets say for example once \$Catai launches on [pump.fun](http://pump.fun) and the creator opens a synthetic market for it on EZPZ (per the earlier flow depicting Pillar 1). That market being live is the unlock condition.
+2. Games unlock for the token, once the market is present, the "game creation" option becomes available to the creator for \$Catai specifically.
+3. Creator chooses from an array of games, selecting initially 1 game from a menu of 3-5 ready made templates.
+4. After choosing the game, creator seeds the game POT, this is a separate pool from the synthetic market's own POT. This game POT has to be funded specifically in \$Catai since that is the token the game is running on. Moreover that is the token the creator launched on [pump.fun](http://pump.fun) officially.
+5. Users play with \$Catai, anyone who wants to predict against or play the game created by that specific creator has to use \$Catai as that is the currency that is being supplied by the creator for the games
