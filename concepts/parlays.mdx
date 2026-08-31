@@ -1,5 +1,5 @@
 ---
-title: "Parlays"
+title: "Parlays (Coming Soon)"
 description: "Multi-leg accumulator predictions on ezpz.fi."
 icon: "layer-group"
 ---
@@ -10,7 +10,7 @@ A **parlay** combines two or more legs into a single prediction. **All legs must
 
 Odds multiply across legs:
 
-```
+```text
 Combined odds = (leg1 × leg2 × ... × legN) / 100^(N-1)
 Max payout = net_stake × combined_odds / 100
 ```
@@ -34,7 +34,7 @@ You cannot include two legs from the **same match** in one parlay. The platform 
 Parlays are backed by a separate **LP pool**, not individual market vaults:
 
 | Actor | Role |
-|-------|------|
+| --- | --- |
 | **LPs** | Deposit USDC into the parlay pool; earn from losing parlays |
 | **Players** | Stake against the pool; win multiplied payouts if all legs hit |
 
@@ -43,9 +43,9 @@ Single-market predictions and parlay predictions use different funding sources. 
 ## Settlement cases
 
 | Case | Result |
-|------|--------|
+| --- | --- |
 | All legs win | Full max payout |
-| Any leg loses | $0 |
+| Any leg loses | \$0 |
 | Some legs voided | Odds recalculated on remaining legs |
 | All legs voided | Full stake refunded |
 | Below minimum legs | Full stake refunded |

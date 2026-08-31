@@ -4,11 +4,11 @@ description: "What runs on-chain vs off-chain, how oracles work, positions, pric
 icon: "sitemap"
 ---
 
-This page answers common technical questions about how ezpz.fi is built. It describes the **current M1 architecture** (AMM-first, custodial trading, closed API).
+This page answers common technical questions about how ezpz.fi is built. It describes the **current M1 architecture** (AMM-first, self-custodial trading, open API).
 
 ## Oracle and settlement data sources
 
-ezpz.fi does **not** use Solana-native oracle networks (Pyth, Switchboard, etc.) to resolve markets. Settlement is a **two-step** process:
+ezpz.fi does **not** use Solana-native oracle networks (Pyth, Switchboard, etc.) to resolve markets for now. Settlement is a **two-step** process:
 
 1. **Off-chain truth gathering** which is to gather feeds, crons, and operators determine the outcome.
 2. **On-chain settlement** where a trusted platform oracle signs `resolve_market` on `authoring-market`, which records the winner and enables redemption.

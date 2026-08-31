@@ -29,7 +29,7 @@ flowchart LR
 
 No wallet popup is required for custodial AMM trades after initial sign-in.
 
-## CLOB lifecycle (v2 preview)
+## CLOB lifecycle (v2 preview not available right now)
 
 Polymarket-style order books use **hybrid-decentralized** settlement: matching off-chain, settlement on-chain.
 
@@ -46,7 +46,7 @@ flowchart LR
 | 1. Sign | Client | Ed25519-signed `OrderIntent` (limit price, size, side) |
 | 2. Submit | `clob-engine` | Order rests on book or matches immediately |
 | 3. Match | Off-chain | Engine pairs compatible buy/sell orders |
-| 4. Settle | `buukie-exchange` | Atomic token \+ USDC transfer between makers |
+| 4. Settle | `ezpz-exchange` | Atomic token \+ USDC transfer between makers |
 | 5. Confirm | Solana | Balances update; trade appears in history |
 
 <Note>

@@ -10,16 +10,17 @@ icon: "store"
 
 - Create and publish prediction markets
 - Set odds and configure market rules
+- Open games and seed pools
 - Seed AMM liquidity so players can trade
 - Earn maker fees on every prediction placed on your markets
 
-Makers use a **linked account** separate from a player account. Switch between roles via account switching — you cannot upgrade a player account in place.
+Makers have a different dashboard compared to users. 
 
 ## Become a maker
 
 <Steps>
   <Step title="Sign up as a maker">
-    Register and select the maker flow during onboarding, or use **Become a maker** from an existing account.
+     Referral from an existing Maker initially to **become a maker** from an existing account.
   </Step>
   <Step title="Enable MFA">
     Go to **Settings** (`/settings`) and enable TOTP with an authenticator app. Save your recovery codes. See [Account & security](/guides/account-security).
@@ -39,10 +40,10 @@ Makers use a **linked account** separate from a player account. Switch between r
     Click **New market** (`/authoring/new`) and follow the steps: venue, odds, resolution source, and review.
   </Step>
   <Step title="For pump.fun coins">
-    Use **Author coin** (`/authoring/coin`) to create synthetic markets on pump.fun tokens — graduation, market-cap threshold, or 5-minute up/down. Anyone with a maker account can author; linking your creator wallet is optional for a verified badge. See [For pump.fun creators & community](/guides/pumpfun-creators).
+    Use **Author coin** (`/authoring/coin`) to create synthetic markets on pump.fun tokens  graduation, market-cap threshold, or 5-minute up/down. Anyone with a maker account can author; linking your creator wallet is optional for a verified badge. See [For pump.fun creators & community](/guides/pumpfun-creators).
   </Step>
   <Step title="Publish">
-    Submit the market. On-chain creation runs in the background — status updates appear in your authoring dashboard (`/authoring/[id]`).
+    Submit the market. On-chain creation runs in the background and status updates appear in your authoring dashboard (`/authoring/[id]`).
   </Step>
 </Steps>
 
@@ -65,7 +66,7 @@ After a market is created on-chain, seed the AMM pool:
 ## Configure fees
 
 | Setting | Description |
-|---------|-------------|
+| --- | --- |
 | **Maker fee** | 0.5–5% skimmed on every prediction (you set this) |
 
 View accrued fees at **Authoring → Fees** (`/authoring/fees`).
@@ -89,7 +90,7 @@ From your authoring dashboard you can:
 ## Rules and integrity
 
 | Protection | Effect |
-|------------|--------|
+| --- | --- |
 | Min maker balance | Cannot publish below operator-configured threshold |
 | Self-prediction detection | Auto-suspend and refund if you predict on your own markets |
 | Odds bounds | On-chain overround enforced between 50–500 bps |

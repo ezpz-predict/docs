@@ -168,35 +168,7 @@ $$
 \text{WCL}(q_0) = C(q_0) - \min(q_{\text{yes},0}, q_{\text{no},0}) = \alpha T \ln\!\frac{1}{1-P} \leq S
 $$
 
-That is why seed USDC is the maker's collateral against subsidy**.** Which is vital because unlike token creators that do no renounce their LP, this prediction market pool cannot lose more than the seed in the adversarial orthant bound.
-
-### Why depth grows with volume
-
-Static LMSR keeps $$b$$ fixed, so a popular market eventually becomes too shallow. Each marginal trade moves prices sharply.
-
-LS-LMSR ties $$b = \alpha T$$ to open interest. As players buy YES or NO:
-
-$$
-T = q_{\text{yes}} + q_{\text{no}} \uparrow \quad \Rightarrow \quad b \uparrow
-$$
-
-A larger $$b$$ flattens the cost curve locally, so **the same \$ stake moves prices less** after the market has absorbed more flow. Depth is endogenous to activity, not a fixed constant set only at launch.
-
-| Quantity | Effect on depth |
-| --- | --- |
-|  |  |
-|  |  |
-|  |  |
-
-### What you see in the UI
-
-| Display | Math object | Notes |
-| --- | --- | --- |
-| **Current price** | Orientation: buying YES raises YES price |  |
-| **Trade preview** | Includes slippage \+ embedded vig |  |
-| **Fees row** | Platform/maker fees on mint path |  |
-
-See [Architecture](/concepts/architecture) for on-chain program layout and [Venues](/concepts/venues) for AMM vs CLOB.
+That is why seed USDC is the maker's collateral against subsidy\*\*.\*\* Which is vital because unlike token creators that do no renounce their LP, this prediction market pool cannot lose more than the seed in the adversarial orthant bound.
 
 ## Liquidity
 
@@ -210,9 +182,9 @@ See [Architecture](/concepts/architecture) for on-chain program layout and [Venu
 
 On market and event pages you see:
 
-- **Current price** — best available AMM price for each side
-- **Trade preview** — stake, fees, shares received, and potential payout before you confirm
-- **Charts** — price history where available (sports and crypto events)
+- **Current price** - best available AMM price for each side
+- **Trade preview** - stake, fees, shares received, and potential payout before you confirm
+- **Charts** - price history where available (sports and crypto events)
 
 ## CLOB pricing (future)
 
