@@ -4,13 +4,13 @@ description: "Recover your stake when a market is cancelled or voided."
 icon: "rotate-left"
 ---
 
-When a market is **voided**, there is no winning side. Instead of redeeming tokens for $1.00, participants **refund** their positions and recover USDC from the market vault.
+When a market is **voided**, there is no winning side. Instead of redeeming tokens for \$1.00, participants **refund** their positions and recover USDC from the market vault.
 
 ## Void vs resolve
 
 | Status | Outcome | What you do |
-|--------|---------|-------------|
-| **Resolved** | YES or NO wins | Winners [redeem](/trading/redeem) for $1.00 per token |
+| --- | --- | --- |
+| **Resolved** | YES or NO wins | Winners [redeem](/trading/redeem) for \$1.00 per token |
 | **Voided** | No winner declared | All participants **refund** stake |
 
 ## When markets are voided
@@ -32,7 +32,7 @@ flowchart LR
   Vault --> You[Your custodial wallet]
 ```
 
-Refunds return your **net stake** — the USDC backing your position after mint-time fees were skimmed. Platform and maker fees collected at mint are not reversed.
+Refunds return your **net stake** USDC backing your position after mint-time fees were skimmed. Platform and maker fees collected at mint are not reversed.
 
 ## What you need to do
 
@@ -48,7 +48,7 @@ Refunds return your **net stake** — the USDC backing your position after mint-
   </Step>
 </Steps>
 
-The platform submits the refund transaction through your custodial wallet — no per-action wallet popup.
+The platform submits the refund transaction through your custodial wallet. No per-action wallet popup.
 
 ## Parlays
 
@@ -57,9 +57,9 @@ If **all legs** of a parlay are voided, you receive a **full stake refund** from
 ## Refund vs redeem
 
 | Action | When | Result |
-|--------|------|--------|
+| --- | --- | --- |
 | **Refund** | Market voided | Recover stake; no winner declared |
-| **Redeem** | Market resolved, you hold winners | $1.00 per winning token |
+| **Redeem** | Market resolved, you hold winners | \$1.00 per winning token |
 
 ## Related
 

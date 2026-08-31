@@ -9,12 +9,12 @@ Every prediction, resolution, and payout leaves an on-chain record on **Solana**
 ## What is on-chain
 
 | Data | On-chain? | Where |
-|------|-----------|-------|
+| --- | --- | --- |
 | USDC balances (custodial wallet) | Yes | SPL token account |
 | Outcome token holdings | Yes | SPL token ATAs |
-| Market state (open/resolved/void) | Yes | `Market` account on `buukie-market` |
-| AMM pool reserves | Yes | `buukie-amm` pool account |
-| Parlay stake and legs | Yes | `Parlay` account on `buukie-parlay` |
+| Market state (open/resolved/void) | Yes | `Market` account on `ezpz-market` |
+| AMM pool reserves | Yes | `ezpz-amm` pool account |
+| Parlay stake and legs | Yes | `Parlay` account on `ezpz-parlay` |
 | Trade prices (historical charts) | Partially | Derived from swap events via indexer |
 | Order book quotes | No (M1) | Off-chain until CLOB v2 |
 
@@ -24,7 +24,7 @@ See [Architecture](/concepts/architecture) for the full on-chain vs off-chain ma
 
 <Steps>
   <Step title="Get your wallet address">
-    Open **Settings** or Portfolio — your custodial wallet pubkey is tied to your account.
+    Open **Settings** or Portfolio - your custodial wallet pubkey is tied to your account.
   </Step>
   <Step title="Open Solana Explorer">
     Go to [explorer.solana.com](https://explorer.solana.com) (use **devnet** toggle if on devnet).
@@ -33,7 +33,7 @@ See [Architecture](/concepts/architecture) for the full on-chain vs off-chain ma
     Paste your wallet address or a specific transaction signature from Activity.
   </Step>
   <Step title="Inspect program calls">
-    Expand instructions to see calls to `buukie-market`, `buukie-amm`, or `buukie-parlay`.
+    Expand instructions to see calls to `ezpz-market`, `ezpz-amm`, or `ezpz-parlay`.
   </Step>
 </Steps>
 
@@ -43,13 +43,13 @@ Devnet deployments are listed in [Smart contracts](/resources/contracts). Use th
 
 ## Indexer
 
-The platform runs **buukie-indexer**, which mirrors on-chain events into Postgres for the UI (Portfolio, charts, activity feed). The indexer is a **projection** — Solana is the source of truth for balances and settlement.
+The platform runs **ezpz-indexer**, which mirrors on-chain events into Postgres for the UI (Portfolio, charts, activity feed). The indexer is a **projection**, Solana is the source of truth for balances and settlement.
 
 | Event type | On-chain instruction | Indexed for UI |
-|------------|---------------------|----------------|
-| Mint + swap | `mint_tokens_v2`, `swap` | Trade history, positions |
+| --- | --- | --- |
+| Mint \+ swap | `mint_tokens_v2`, `swap` | Trade history, positions |
 | Resolve | `resolve_market` | Market status |
-| Redeem | `redeem` | Settlement, P&amp;L |
+| Redeem | `redeem` | Settlement, P&L |
 | Refund | `refund` | Void recovery |
 | Parlay | `create_parlay`, `settle_parlay` | Parlay status |
 

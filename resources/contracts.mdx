@@ -13,25 +13,25 @@ ezpz.fi settlement runs on **Solana**. These programs hold market state, USDC va
 ## Programs
 
 | Program | Address | Purpose |
-|---------|---------|---------|
-| **buukie-market** | `5vua9nxBu9JmqbbQfQ4B82DFunX4FEfr2VAvHuUFAtWu` | Markets, mint/redeem, resolve, disputes, fees |
-| **buukie-amm** | `5DefKySDZeCW4UowZJ7gxjiCkhMutRXvA14XpiMXpnac` | AMM pools, swap, liquidity |
-| **buukie-parlay** | `DjBpNef9fpkmD11vcrhBmhpC5AmWqHyQKXcBSGmTXHn6` | Parlay pool, leg resolution, settlement |
-| **buukie-exchange** | `CQH3ZaUnKfcFkZCCuzsCKcfggCcSBbfLuD7c8fYze2vR` | CLOB on-chain settlement (v2) |
-| **buukie-negrisk** | *(scaffold)* | Multi-outcome NegRisk events (future) |
+| --- | --- | --- |
+| **ezpz-market** | `5vua9nxBu9JmqbbQfQ4B82DFunX4FEfr2VAvHuUFAtWu` | Markets, mint/redeem, resolve, disputes, fees |
+| **ezpz-amm** | `5DefKySDZeCW4UowZJ7gxjiCkhMutRXvA14XpiMXpnac` | AMM pools, swap, liquidity |
+| **ezpz-parlay** | `DjBpNef9fpkmD11vcrhBmhpC5AmWqHyQKXcBSGmTXHn6` | Parlay pool, leg resolution, settlement |
+| **ezpz-exchange** | `CQH3ZaUnKfcFkZCCuzsCKcfggCcSBbfLuD7c8fYze2vR` | CLOB on-chain settlement (v2) |
+| **ezpz-negrisk** | _(scaffold)_ | Multi-outcome NegRisk events (future) |
 
 [View on Solana Explorer (devnet)](https://explorer.solana.com/?cluster=devnet)
 
 ## Collateral
 
 | Asset | Devnet mint | Notes |
-|-------|-------------|-------|
+| --- | --- | --- |
 | **USDC (test)** | `GxsE5rx8gYbGHb3v6ofjfUFRsJcCQq9wtW23gbGpbXs9` | Test mint for devnet only |
 
 ## Key on-chain accounts
 
 | Account | Description |
-|---------|-------------|
+| --- | --- |
 | **Market** | Per-market state: status, expiry, outcome mints, vault |
 | **USDC vault** | Holds collateral for a market's positions |
 | **Platform fee vault** | Accumulated platform overround |
@@ -41,7 +41,7 @@ ezpz.fi settlement runs on **Solana**. These programs hold market state, USDC va
 
 ## Verification
 
-All trades, resolutions, and redemptions emit on-chain events indexed by **buukie-indexer**. You can verify any transaction on [Solana Explorer](https://explorer.solana.com) using your custodial wallet address or transaction signature.
+All trades, resolutions, and redemptions emit on-chain events indexed by **ezpz-indexer**. You can verify any transaction on [Solana Explorer](https://explorer.solana.com) using your custodial wallet address or transaction signature.
 
 ## Related
 

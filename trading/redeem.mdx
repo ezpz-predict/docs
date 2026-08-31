@@ -4,7 +4,7 @@ description: "Exchange winning outcome tokens for USDC after resolution."
 icon: "circle-check"
 ---
 
-After a market **resolves**, winning outcome tokens can be redeemed for **$1.00 USDC each**. Losing tokens are worthless.
+After a market **resolves**, winning outcome tokens can be redeemed for **\$1.00 USDC each**. Losing tokens are worthless.
 
 ## Before you redeem
 
@@ -27,11 +27,11 @@ flowchart LR
 ```
 
 | Input | Output |
-|-------|--------|
-| 100 winning YES tokens | $100 USDC (from market vault) |
-| 50 winning NO tokens | $50 USDC |
+| --- | --- |
+| 100 winning YES tokens | \$100 USDC (from market vault) |
+| 50 winning NO tokens | \$50 USDC |
 
-Redemption is executed on-chain via the `redeem` instruction. The platform submits the transaction through your custodial wallet — you do not need to sign each redemption manually.
+Redemption is executed on-chain via the `redeem` instruction. The platform submits the transaction through your custodial wallet and you do not need to sign each redemption manually.
 
 ## Voided markets
 
@@ -43,14 +43,14 @@ Parlay payouts are separate from single-market redemption. When all legs resolve
 
 ## Example
 
-You bought 200 YES tokens at an average of 45¢ ($90 total cost). Team A wins.
+You bought 200 YES tokens at an average of 45¢ (\$90 total cost). Team A wins.
 
 - Market resolves **YES**
-- After dispute window: redeem 200 YES → **$200 USDC**
-- Profit: $200 − $90 = **$110** (before fees at mint time)
+- After dispute window: redeem 200 YES → **\$200 USDC**
+- Profit: $$200 − $$90 = **\$110** (before fees at mint time)
 
 <Tip>
-  Track settled positions and P&amp;L in **Portfolio** (`/portfolio`).
+  Track settled positions and P&L in **Portfolio** (`/portfolio`).
 </Tip>
 
 ## Related
